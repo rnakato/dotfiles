@@ -80,11 +80,10 @@
     (ding)))
 (setq ring-bell-function 'my-bell-function)
 
-;; font
-(add-to-list 'default-frame-alist '(font . "ricty-12"))
-
 ;; color theme
-(load-theme 'wheatgrass t)
+(setq custom-theme-directory "~/.emacs.d/themes/")
+(load-theme 'zenburn t)
+;;(load-theme 'wheatgrass t)
 
 ;; alpha
 (if window-system 
