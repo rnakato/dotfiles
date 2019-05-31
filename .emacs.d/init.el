@@ -118,3 +118,15 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;; 起動時のフレーム設定
+(setq initial-frame-alist
+   (append (list
+     ;; 表示位置
+      '(top . 200)
+      '(left . 200)
+     ;; サイズ
+      '(width . 100)  ;横
+      '(height . 45)) ;縦
+     initial-frame-alist)))
+(setq default-frame-alist initial-frame-alist)

@@ -12,6 +12,7 @@ alias acc='ssh rnakato@accordion -X -A'
 alias euph='ssh rnakato@euphonium -X -A'
 alias horn='ssh rnakato@horn -X -A'
 alias aki='ssh rnakato@akiyamaserver -X -A'
+alias ryuteki='ssh rnakato@192.168.100.2 -X -A'
 alias libcalc='libreoffice --calc'
 alias emcas='emacs'
 alias macs='emacs'
@@ -45,14 +46,6 @@ export PATH=$PATH:$BINARYDIR/hisat2-2.1.0/:$BINARYDIR/stringtie-1.3.5.Linux_x86_
 export PATH=$PATH::$BINARYDIR/userApps/bin:$BINARYDIR/circos-0.69-6/bin
 
 
-export PYENV_ROOT=$HOME/.pyenv
-export PATH=$PYENV_ROOT/bin:$PATH
-eval "$(pyenv init -)"
-alias py2="source $PYENV_ROOT/versions/anaconda3-2018.12/bin/activate py2"
-export PLENV_ROOT=$HOME/.plenv
-export PATH=$PLENV_ROOT/bin:$PATH
-eval "$(plenv init -)"
-
 ### docker
 function drun()
 {
@@ -72,13 +65,3 @@ if ! ssh-add -l > /dev/null 2>&1; then
   source $SSH_AGENT_FILE
   ssh-add $HOME/.ssh/id_rsa
 fi
-
-
-#BDIR=$HOME/git
-#export PATH=$PATH:/usr/local/bin:$BDIR/Cgaln:$BDIR/DROMPA3:$BDIR/DROMPA3/scripts:$BDIR/DROMPAplus/bin:$BDIR/DROMPAplus/cpdf/Linux-Intel-64bit:$BDIR/SSP/bin:$BDIR/ChIPseqTools/bin:$BDIR/script_rnakato:$BDIR/script_Hi-C:$BDIR/script_RNAseq
-#export PATH=$PATH:$BDIR/RSEM:$BDIR/STAR/bin/Linux_x86_64_static:$BDIR/bedtools2/bin:$BDIR/bamtools/bin:$BDIR/salmon/bin:$BDIR/HOMER/bin:$BDIR/UCSC_utils/:$BDIR/BaMMmotif2/build/bin
-
-#BINDIR=$BDIR/binaries
-#export PATH=$PATH:$BINDIR/sratoolkit.2.9.2-ubuntu64/bin:$BINDIR/BETA_1.0.7/bin:$BINDIR/subread-1.5.1-Linux-x86_64/bin:/edirect:$BINDIR/FastQC
-#export PATH=$PATH:$BDIR/UCSC_utils:$BDIR/motif/meme_4.12.0/build/bin:$HOME/.local/UCSF-Chimera64-1.12/bin/
-#export PATH=$PATH:$BINDIR/hisat2-2.1.0/:$BINDIR/stringtie-1.3.5.Linux_x86_64:$BINDIR/gffcompare-0.10.6.Linux_x86_64/
