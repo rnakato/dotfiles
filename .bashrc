@@ -28,9 +28,10 @@ alias jn='jupyter notebook'
 alias i='ipython --pylab'
 alias juicebox='java -Xms512m -Xmx2048m -jar /home/rnakato/git/binaries/Aidenlab/Juicebox.jar'
 alias gcjn="cd /mnt/Googledrive_MyDrive/Colab\ Notebooks/;jupyter notebook"
-alias dr="docker stop $(docker ps -q | tr '\n' ' ') && docker rm $(docker ps -q -a | tr '\n' ' ')"
-alias ds="docker rm $(docker ps -q -a | tr '\n' ' ')"
+alias dr='docker stop $(docker ps -q | tr "\n" " ") && docker rm $(docker ps -q -a | tr "\n" " ")'
+alias ds='docker rm $(docker ps -q -a | tr "\n" " ")'
 alias dpurge='docker stop $(docker ps -q) && docker rmi $(docker images -q) -f'
+
 
 GITDIR=/home/rnakato/git
 BINARYDIR=$GITDIR/binaries
