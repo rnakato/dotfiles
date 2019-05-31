@@ -1,0 +1,95 @@
+ -- vim: ts=4 sw=4 noet ai cindent syntax=lua
+ --[[
+Conky, a system monitor, based on torsmo
+
+Any original torsmo code is licensed under the BSD license
+
+All code written since the fork of torsmo is licensed under the GPL
+
+Please see COPYING for details
+
+Copyright (c) 2004, Hannu Saransaari and Lauri Hakkarainen
+Copyright (c) 2005-2012 Brenden Matthews, Philip Kovacs, et. al. (see AUTHORS)
+All rights reserved.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+]]
+
+conky.config = {
+    color1 = 'white',
+    color2 = 'eeeeee',
+    color3 = 'light gray',
+    template0 = '${if_mounted \\1}\n $color2\\1 $color${fs_used \\1}/${fs_size \\1} ${fs_bar 6 \\1}$endif$color3',
+    template1 = '${if_up \\1}\n$color2 \\1 $color1${addrs \\1}$color3  $stippled_hr\n Up: $color1${upspeed \\1}$alignr${upspeedgraph \\1 18,160 ffffff 00ffff}$color3\n Down: $color1${downspeed \\1}$alignr${downspeedgraph \\1 18,160 ffffff 00ff00}$color3$endif$color3',
+    alignment = 'top_right',
+    background = false,
+    border_width = 1,
+    cpu_avg_samples = 2,
+    default_color = 'white',
+    default_outline_color = 'white',
+    default_shade_color = 'white',
+    draw_borders = false,
+    draw_graph_borders = true,
+    draw_outline = false,
+    draw_shades = false,
+    double_buffer = true,
+    override_utf8_locale = true,
+    use_xft = true,
+        font = 'IPAGothic:style=Regular:size=14',
+    gap_x = 5,
+    gap_y = 60,
+    minimum_height = 5,
+    minimum_width = 5,
+    net_avg_samples = 2,
+    no_buffers = true,
+    out_to_console = false,
+    out_to_stderr = false,
+    extra_newline = false,
+    own_window = true,
+    own_window_class = 'Conky',
+    own_window_type = 'normal',
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+    own_window_transparent = true,
+    own_window_argb_visual = true,
+    stippled_borders = 0,
+    update_interval = 1.0,
+    uppercase = false,
+    use_spacer = 'none',
+    show_graph_scale = false,
+    show_graph_range = false
+}
+
+conky.text = [[
+$alignc$nodename - $kernel$color3
+$hr
+Uptime: $color1$uptime$color3
+Load: $color1$loadavg$color3
+Freq: $color1${freq_g}GHz$color3
+RAM: $color1$mem/$memmax - $memperc% ${membar 4}$color3
+Swap: $color1$swap/$swapmax - $swapperc% ${swapbar 4}$color3
+CPU: $color1$cpu%$alignr${cpugraph 30,160 ffffff ff0000}$color3
+Proces: $color1$processes$color3  Runs: $color1$running_processes$color3  Thrds: $color1$threads$color3
+TCP Inbounds: $color1${tcp_portmon 1 32767 count}$color3  Outbounds: $color1${tcp_portmon 32769 65535 count}$color3
+$hr
+File systems:${template0 /}${template0 /home}${template0 /media/DATAPART1}${template0 /media/DATAPART2}${template0 /media/DATAPART3}${template0 /media/DATAPART4}${template0 /media/DATAPART5}${template0 /media/DATAPART6}${template0 /media/LTR4B1}${template0 /media/LTR4B2}${template0 /media/LTR4B3}${template0 /media/LTR4B4}${template0 /media/NAS_DS418j}
+$hr
+Networking:${template1 enp6s0f0}
+$hr
+Name              PID   CPU%   MEM%
+ $color2${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}$color3
+ $color2${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}$color3
+ $color2${top name 3} ${top pid 3} ${top cpu 3} ${top mem 3}$color3
+ $color2${top name 4} ${top pid 4} ${top cpu 4} ${top mem 4}$color3
+ $color2${top name 5} ${top pid 5} ${top cpu 5} ${top mem 5}$color3
+ $color2${top name 6} ${top pid 6} ${top cpu 6} ${top mem 6}$color3
+]]
