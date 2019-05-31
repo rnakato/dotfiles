@@ -7,6 +7,7 @@
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
+(add-to-list 'default-frame-alist '(font . "ricty-12"))
 
 ;; 環境を日本語、UTF-8にする
 (set-locale-environment nil)
@@ -21,6 +22,14 @@
 ;; スタートアップメッセージを表示させない
 (setq inhibit-startup-message t)
 
+;; ターミナルで起動したときにメニューを表示しない
+(if (eq window-system 'x)
+    (menu-bar-mode 1) (menu-bar-mode 0))
+(menu-bar-mode nil)
+
+;; scratchの初期メッセージ消去
+(setq initial-scratch-message "")
+
 ;; 選択領域を削除キーで一括削除
 (delete-selection-mode t)
 
@@ -30,6 +39,21 @@
 
 ;; png, jpg などのファイルを画像として表示
 (setq auto-image-file-mode t)
+
+;; リージョンのハイライト
+(transient-mark-mode 1)
+
+;; タイトルにフルパス表示
+(setq frame-title-format "%f")
+
+;;current directory 表示
+(let ((ls (member 'mode-line-buffer-identification
+                  mode-line-format)))
+  (setcdr ls
+    (cons '(:eval (concat " ("
+            (abbreviate-file-name default-directory)
+            ")"))
+            (cdr ls))))
 
 ;; 行頭 kill-line (C-k) で行全体をカット
 (setq kill-whole-line t)
@@ -107,7 +131,8 @@
 
 ;; color theme
 (setq custom-theme-directory "~/.emacs.d/themes/")
-(load-theme 'zenburn t)
+(load-theme 'atom-one-dark t)
+;;(load-theme 'zenburn t)
 ;;(load-theme 'wheatgrass t)
 
 ;; alpha
@@ -129,7 +154,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (auto-complete hiwin ess yasnippet company))))
+ '(package-selected-packages
+   (quote
+    (rainbow-delimiters auto-complete hiwin ess yasnippet company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -199,3 +226,16 @@
 
  ;; ediff 時にフレームを使わない
  (setq ediff-window-setup-function 'ediff-setup-windows-plain)
+
+;; https://github.com/Fanael/rainbow-delimiters
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
+;; git関係
+;; git-gutter-fringe
+(global-git-gutter-mode 1)
+
+;; magit
+(global-set-key (kbd "C-c C-g") 'magit-diff-working-tree)
+
+;; ファイル編集時に，bufferを再読込
+(global-auto-revert-mode 1)
