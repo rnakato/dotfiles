@@ -21,8 +21,26 @@
 ;; スタートアップメッセージを表示させない
 (setq inhibit-startup-message t)
 
+;; 選択領域を削除キーで一括削除
+(delete-selection-mode t)
+
+;; shift + 矢印キーで領域選択
+(if (fboundp 'pc-selection-mode)
+    (pc-selection-mode))
+
+;; png, jpg などのファイルを画像として表示
+(setq auto-image-file-mode t)
+
+;; 行頭 kill-line (C-k) で行全体をカット
+(setq kill-whole-line t)
+;; 読み取り専用バッファーでもカット系でコピー可能
+(setq kill-read-only-ok t)
+
 ;; バックアップファイルを作成させない
 (setq make-backup-files nil)
+
+;; lockfile 実行の有無
+(setq create-lockfiles nil)
 
 ;; 終了時にオートセーブファイルを削除する
 (setq delete-auto-save-files t)
@@ -68,6 +86,13 @@
 ;; スクロールは１行ごとに
 (setq scroll-conservatively 1)
 
+;; 1 画面スクロール時に重複させる行数
+(setq next-screen-context-lines 10)
+
+;; 1 画面スクロール時にカーソルの画面上の位置をなるべく変えない
+(setq scroll-preserve-screen-position t)
+
+
 ;; C-kで行全体を削除する
 (setq kill-whole-line t)
 
@@ -78,13 +103,7 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; beep音を消す
-(defun my-bell-function ()
-  (unless (memq this-command
-        '(isearch-abort abort-recursive-edit exit-minibuffer
-              keyboard-quit mwheel-scroll down up next-line previous-line
-              backward-char forward-char))
-    (ding)))
-(setq ring-bell-function 'my-bell-function)
+(setq ring-bell-function 'ignore)
 
 ;; color theme
 (setq custom-theme-directory "~/.emacs.d/themes/")
@@ -101,12 +120,16 @@
 (hiwin-activate)
 (set-face-background 'hiwin-face "gray30")
 
+;; dabbrev 時の置換
+(setq dabbrev-case-replace nil)
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (hiwin ess yasnippet company))))
+ '(package-selected-packages (quote (auto-complete hiwin ess yasnippet company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -117,10 +140,10 @@
 ;; 起動時のフレーム設定
 (setq initial-frame-alist
       (append (list
-               '(top . 200)
-               '(left . 200)
+               '(top . 100)
+               '(left . 100)
                '(width . 100)
-               '(height . 45)
+               '(height . 40)
                )
               initial-frame-alist))
 (setq default-frame-alist initial-frame-alist)
