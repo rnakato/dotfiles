@@ -147,3 +147,55 @@
                )
               initial-frame-alist))
 (setq default-frame-alist initial-frame-alist)
+
+ ;; オプションの "Ignore Case for Search" で設定可
+ ;;
+ ;; ;; 検索(全般)
+ ;; (setq case-fold-search t)
+ ;;
+ ;; ;; インクリメンタルサーチ
+ ;; (setq isearch-case-fold-search nil)
+ 
+ 
+ ;; バッファー名の検索
+ (setq read-buffer-completion-ignore-case t)
+ 
+ ;; ファイル名の検索
+ (setq read-file-name-completion-ignore-case t)
+ 
+ (when (require 'auto-complete-config nil t)
+   (ac-config-default))
+
+ ;; 空白を一度に削除
+ (if (fboundp 'global-hungry-delete-mode)
+     (global-hungry-delete-mode 1))
+ 
+ ;; 改行時などに自動でインデント 
+ ;;   (C-j と C-m の入れ替え)
+ (if (fboundp 'electric-indent-mode)
+     (electric-indent-mode 0))
+
+;; C 系共通
+ ;; ================================================================
+ 
+ (defun my-all-cc-mode-init ()
+   ;; C 系(cc-mode を継承した)モード共通の設定を記述
+ 
+   ;; 空白などを一度に削除
+   (c-toggle-hungry-state 1)
+ 
+   ;; 改行時などで自動インデント
+   ;; (c-toggle-electric-state 1)
+   ;; 
+   ;; ";", "}" などを入力したときに自動改行
+   ;; 自動インデントも一緒に ON になる
+   ;; (c-toggle-auto-newline 1)
+ 
+   )
+ (add-hook 'c-mode-common-hook 'my-all-cc-mode-init)
+
+ ;; .h でも C++
+ (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+
+ ;; ediff 時にフレームを使わない
+ (setq ediff-window-setup-function 'ediff-setup-windows-plain)
