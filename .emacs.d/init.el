@@ -1,4 +1,3 @@
-
 (require 'package)
 (setq package-archives
       '(("gnu" . "http://elpa.gnu.org/packages/")
@@ -66,12 +65,8 @@
 (set-face-background 'show-paren-match-face "grey")
 (set-face-foreground 'show-paren-match-face "black")
 
-;; スペース、タブなどを可視化する
-(global-whitespace-mode 1)
-
 ;; スクロールは１行ごとに
 (setq scroll-conservatively 1)
-
 
 ;; C-kで行全体を削除する
 (setq kill-whole-line t)
@@ -121,12 +116,11 @@
 
 ;; 起動時のフレーム設定
 (setq initial-frame-alist
-   (append (list
-     ;; 表示位置
-      '(top . 200)
-      '(left . 200)
-     ;; サイズ
-      '(width . 100)  ;横
-      '(height . 45)) ;縦
-     initial-frame-alist)))
+      (append (list
+               '(top . 200)
+               '(left . 200)
+               '(width . 100)
+               '(height . 45)
+               )
+              initial-frame-alist))
 (setq default-frame-alist initial-frame-alist)
