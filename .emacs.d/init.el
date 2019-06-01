@@ -136,7 +136,7 @@
 ;;(load-theme 'wheatgrass t)
 
 ;; alpha
-(if window-system 
+(if window-system
     (progn
       (set-frame-parameter nil 'alpha 95)))
 
@@ -167,8 +167,8 @@
 ;; 起動時のフレーム設定
 (setq initial-frame-alist
       (append (list
-               '(top . 100)
-               '(left . 100)
+               '(top . 50)
+               '(left . 50)
                '(width . 100)
                '(height . 40)
                )
@@ -182,42 +182,42 @@
  ;;
  ;; ;; インクリメンタルサーチ
  ;; (setq isearch-case-fold-search nil)
- 
- 
+
+
  ;; バッファー名の検索
  (setq read-buffer-completion-ignore-case t)
- 
+
  ;; ファイル名の検索
  (setq read-file-name-completion-ignore-case t)
- 
+
  (when (require 'auto-complete-config nil t)
    (ac-config-default))
 
  ;; 空白を一度に削除
  (if (fboundp 'global-hungry-delete-mode)
      (global-hungry-delete-mode 1))
- 
- ;; 改行時などに自動でインデント 
+
+ ;; 改行時などに自動でインデント
  ;;   (C-j と C-m の入れ替え)
  (if (fboundp 'electric-indent-mode)
      (electric-indent-mode 0))
 
 ;; C 系共通
  ;; ================================================================
- 
+
  (defun my-all-cc-mode-init ()
    ;; C 系(cc-mode を継承した)モード共通の設定を記述
- 
+
    ;; 空白などを一度に削除
    (c-toggle-hungry-state 1)
- 
+
    ;; 改行時などで自動インデント
    ;; (c-toggle-electric-state 1)
-   ;; 
+   ;;
    ;; ";", "}" などを入力したときに自動改行
    ;; 自動インデントも一緒に ON になる
    ;; (c-toggle-auto-newline 1)
- 
+
    )
  (add-hook 'c-mode-common-hook 'my-all-cc-mode-init)
 
@@ -232,10 +232,56 @@
 
 ;; git関係
 ;; git-gutter-fringe
-(global-git-gutter-mode 1)
+(global-git-gutter-mode t)
 
 ;; magit
 (global-set-key (kbd "C-c C-g") 'magit-diff-working-tree)
 
 ;; ファイル編集時に，bufferを再読込
 (global-auto-revert-mode 1)
+
+
+;; ファイルの保存時に行末のスペースや末尾の改行を削除する
+;; https://qiita.com/itiut@github/items/4d74da2412a29ef59c3a
+(require 'whitespace)
+(setq whitespace-style '(face           ; faceで可視化
+                         trailing       ; 行末
+                         tabs           ; タブ
+                         spaces         ; スペース
+                         empty          ; 先頭/末尾の空行
+                         space-mark     ; 表示のマッピング
+                         tab-mark
+                         ))
+
+(setq whitespace-display-mappings
+      '((space-mark ?\u3000 [?\u25a1])
+        ;; WARNING: the mapping below has a problem.
+        ;; When a TAB occupies exactly one column, it will display the
+        ;; character ?\xBB at that column followed by a TAB which goes to
+        ;; the next TAB column.
+        ;; If this is a problem for you, please, comment the line below.
+        (tab-mark ?\t [?\u00BB ?\t] [?\\ ?\t])))
+
+;; スペースは全角のみを可視化
+(setq whitespace-space-regexp "\\(\u3000+\\)")
+
+;; 保存前に自動でクリーンアップ
+(setq whitespace-action '(auto-cleanup))
+
+(global-whitespace-mode 1)
+
+(defvar my/bg-color "#232323")
+(set-face-attribute 'whitespace-trailing nil
+                    :background my/bg-color
+                    :foreground "DeepPink"
+                    :underline t)
+(set-face-attribute 'whitespace-tab nil
+                    :background my/bg-color
+                    :foreground "LightSkyBlue"
+                    :underline t)
+(set-face-attribute 'whitespace-space nil
+                    :background my/bg-color
+                    :foreground "GreenYellow"
+                    :weight 'bold)
+(set-face-attribute 'whitespace-empty nil
+                    :background my/bg-color)
