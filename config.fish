@@ -15,6 +15,20 @@ set -x PATH $PATH $BINARYDIR/sratoolkit.2.9.6-ubuntu64/bin $BINARYDIR/FastQC
 set -x PATH $PATH $BINARYDIR/hisat2-2.1.0/ $BINARYDIR/stringtie-1.3.5.Linux_x86_64 $BINARYDIR/gffcompare-0.10.6.Linux_x86_64/ $BINDIR/kallisto-current
 set -x PATH $PATH $BINARYDIR/userApps/bin $BINARYDIR/circos-0.69-6/bin
 
+### for WSL
+set -x DISPLAY localhost:0.0
+
+set -x SSH_AGENT_FILE $HOME/.ssh/ssh-agent
+if test -f $SSH_AGENT_FILE
+   source $SSH_AGENT_FILE
+end
+ssh-add -l > /dev/null ^&1
+if test $status -ne 0
+  ssh-agent -c > $SSH_AGENT_FILE
+  source $SSH_AGENT_FILE
+  ssh-add $HOME/.ssh/id_rsa
+end
+
 ### functions
 function gsh
     git push origin master
