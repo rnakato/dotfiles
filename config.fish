@@ -29,94 +29,38 @@ if test $status -ne 0
   ssh-add $HOME/.ssh/id_rsa
 end
 
+### aliases
+alias gsh='git push origin master'
+alias gll='git pull origin master'
+alias gllsub='git submodule foreach git pull origin master'
+alias gts='git status'
+alias gmit='git commit -m'
+alias sax='ssh rnakato@saxophone -X -A'
+alias synthe='ssh rnakato@synthesizer -X -A'
+alias acc='ssh rnakato@accordion -X -A'
+alias euph='ssh rnakato@euphonium -X -A'
+alias horn='ssh rnakato@horn -X -A'
+alias aki='ssh rnakato@akiyamaserver -X -A'
+alias ryuteki='ssh rnakato@192.168.100.2 -X -A'
+alias libcalc='libreoffice --calc'
+alias emcas='emacs'
+alias macs='emacs'
+alias emasc='emacs'
+alias emas='emacs'
+alias emac='emacs'
+alias sl='ls'
+alias ks='ls'
+alias g11='g++ -std=c++11'
+alias g14='g++ -std=c++14'
+alias jn='jupyter notebook'
+alias i='ipython --pylab'
+alias juicebox='java -Xms512m -Xmx2048m -jar /home/rnakato/git/binaries/Aidenlab/Juicebox.jar'
+alias GoogleColab="cd /mnt/Googledrive_MyDrive/Colab\ Notebooks/;jupyter notebook"
+alias dstop_rm='docker stop (docker ps -q | tr "\n" " ") && docker rm (docker ps -q -a | tr "\n" " ")'
+alias d_rm='docker rm (docker ps -q -a | tr "\n" " ")'
+alias d_purge='docker stop (docker ps -q) and docker rmi (docker images -q) -f'
+
 ### functions
-function gsh
-    git push origin master
-end
-function gll
-    git pull origin master
-end
-function gllsub
-    git submodule foreach git pull origin master
-end
-function gts
-    git status
-end
-function gmit
-    git commit -m $argv
-end
-function sax
-    ssh rnakato@saxophone -X -A
-end
-function synthe
-    ssh rnakato@synthesizer -X -A
-end
-function acc
-    ssh rnakato@accordion -X -A
-end
-function euph
-    ssh rnakato@euphonium -X -A
-end
-function horn
-    ssh rnakato@horn -X -A
-end
-function aki
-    ssh rnakato@akiyamaserver -X -A
-end
-function ryuteki
-    ssh rnakato@192.168.100.2 -X -A
-end
-function libcalc
-    libreoffice --calc
-end
-function emcas
-    emacs
-end
-function macs
-    emacs
-end
-function emasc
-    emacs
-end
-function emas
-    emacs
-end
-function emac
-    emacs
-end
-function sl
-    ls
-end
-function ks
-    ls
-end
-function g11
-    g++ -std=c++11
-end
-function g14
-    g++ -std=c++14
-end
-function jn
-    jupyter notebook
-end
-function i
-    ipython --pylab
-end
-function juicebox
-    java -Xms512m -Xmx2048m -jar /home/rnakato/git/binaries/Aidenlab/Juicebox.jar
-end
-function GoogleColab
-    cd /mnt/Googledrive_MyDrive/Colab\ Notebooks/;jupyter notebook
-end
-function dstop_rm
-    docker stop (docker ps -q | tr "\n" " ") and docker rm (docker ps -q -a | tr "\n" " ")
-end
-function d_rm
-    docker rm (docker ps -q -a | tr "\n" " ")
-end
-function d_purge
-    docker stop (docker ps -q) and docker rmi (docker images -q) -f
-end
 function drun
     docker run -it -u (id -u):(id -g) \
     -v /etc/group:/etc/group:ro \
