@@ -1,7 +1,3 @@
-# for fzf
-# https://qiita.com/hennin/items/33758226a0de8c963ddf
-set -U FZF_LEGACY_KEYBINDINGS 0
-
 set -x GITDIR /home/rnakato/git
 set -x BINARYDIR $GITDIR/binaries
 
@@ -13,16 +9,13 @@ set -x PATH $PATH $GITDIR/UCSC_utils $GITDIR/motif/meme_4.12.0/build/bin
 ### BINDIR
 set -x PATH $PATH $BINARYDIR/sratoolkit.2.9.6-ubuntu64/bin $BINARYDIR/FastQC
 set -x PATH $PATH $BINARYDIR/hisat2-2.1.0/ $BINARYDIR/stringtie-1.3.5.Linux_x86_64 $BINARYDIR/gffcompare-0.10.6.Linux_x86_64/ $BINDIR/kallisto-current
-set -x PATH $PATH $BINARYDIR/userApps/bin $BINARYDIR/circos-0.69-6/bin
+set -x PATH $PATH $BINARYDIR/userApps/bin
 
+source config.local.fish
 
-set -x PATH $PATH $HOME/.linuxbrew/bin
-
-set PATH $HOME/.plenv/bin $PATH
-eval (plenv init - | source)
-set PATH $HOME/.pyenv/bin $PATH
-eval (pyenv init - | source)
-
+# for fzf
+# https://qiita.com/hennin/items/33758226a0de8c963ddf
+set -x FZF_LEGACY_KEYBINDINGS 0
 
 ### for WSL
 #set -x DISPLAY localhost:0.0
@@ -70,6 +63,10 @@ alias d_rm='docker rm (docker ps -q -a | tr "\n" " ")'
 alias d_purge='docker stop (docker ps -q) and docker rmi (docker images -q) -f'
 
 ### functions
+function dbash
+  command docker exec -it $argv bash
+end
+
 function drun
     docker run -it -u (id -u):(id -g) \
     -v /etc/group:/etc/group:ro \
