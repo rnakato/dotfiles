@@ -11,7 +11,7 @@ set -x PATH $PATH $BINARYDIR/sratoolkit.2.9.6-ubuntu64/bin $BINARYDIR/FastQC
 set -x PATH $PATH $BINARYDIR/hisat2-2.1.0/ $BINARYDIR/stringtie-1.3.5.Linux_x86_64 $BINARYDIR/gffcompare-0.10.6.Linux_x86_64/ $BINDIR/kallisto-current
 set -x PATH $PATH $BINARYDIR/userApps/bin
 
-source config.local.fish
+source $HOME/.config/fish/config.local.fish
 
 # for fzf
 # https://qiita.com/hennin/items/33758226a0de8c963ddf
