@@ -15,8 +15,17 @@ set -x PATH $PATH $BINARYDIR/sratoolkit.2.9.6-ubuntu64/bin $BINARYDIR/FastQC
 set -x PATH $PATH $BINARYDIR/hisat2-2.1.0/ $BINARYDIR/stringtie-1.3.5.Linux_x86_64 $BINARYDIR/gffcompare-0.10.6.Linux_x86_64/ $BINDIR/kallisto-current
 set -x PATH $PATH $BINARYDIR/userApps/bin $BINARYDIR/circos-0.69-6/bin
 
+
+set -x PATH $PATH $HOME/.linuxbrew/bin
+
+set PATH $HOME/.plenv/bin $PATH
+eval (plenv init - | source)
+set PATH $HOME/.pyenv/bin $PATH
+eval (pyenv init - | source)
+
+
 ### for WSL
-set -x DISPLAY localhost:0.0
+#set -x DISPLAY localhost:0.0
 
 set -x SSH_AGENT_FILE $HOME/.ssh/ssh-agent
 if test -f $SSH_AGENT_FILE
