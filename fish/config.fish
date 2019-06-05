@@ -17,9 +17,6 @@ source $HOME/.config/fish/config.local.fish
 # https://qiita.com/hennin/items/33758226a0de8c963ddf
 set -x FZF_LEGACY_KEYBINDINGS 0
 
-### for WSL
-#set -x DISPLAY localhost:0.0
-
 set -x SSH_AGENT_FILE $HOME/.ssh/ssh-agent
 if test -f $SSH_AGENT_FILE
    source $SSH_AGENT_FILE
@@ -64,7 +61,7 @@ alias d_purge='docker stop (docker ps -q) and docker rmi (docker images -q) -f'
 
 ### functions
 function dbash
-  command docker exec -it $argv bash
+    docker exec -it $argv bash
 end
 
 function drun
