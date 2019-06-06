@@ -75,8 +75,3 @@ function drun
 end
 
 umask 002
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-eval (eval /mnt/g/home/rnakato/.pyenv/versions/anaconda3-2019.03/bin/conda "shell.fish" "hook" $argv)
-# <<< conda initialize <<<
