@@ -61,7 +61,7 @@ alias d_purge='docker stop (docker ps -q) and docker rmi (docker images -q) -f'
 
 ### functions
 function dbash
-  command docker exec -it $argv bash
+    docker exec -it $argv bash
 end
 
 function drun
