@@ -17,9 +17,6 @@ source $HOME/.config/fish/config.local.fish
 # https://qiita.com/hennin/items/33758226a0de8c963ddf
 set -x FZF_LEGACY_KEYBINDINGS 0
 
-### for WSL
-#set -x DISPLAY localhost:0.0
-
 set -x SSH_AGENT_FILE $HOME/.ssh/ssh-agent
 if test -f $SSH_AGENT_FILE
    source $SSH_AGENT_FILE
@@ -76,3 +73,10 @@ function drun
     $argv
     /bin/bash
 end
+
+umask 002
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+eval (eval /mnt/g/home/rnakato/.pyenv/versions/anaconda3-2019.03/bin/conda "shell.fish" "hook" $argv)
+# <<< conda initialize <<<
