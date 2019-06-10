@@ -73,3 +73,5 @@ function drun
     $argv
     /bin/bash
 end
+
+umask 002
