@@ -70,7 +70,7 @@
 (setq delete-auto-save-files t)
 
 ;; タブにスペースを使用する
-(setq-default tab-width 4 indent-tabs-mode nil)
+;;(setq-default tab-width 4 indent-tabs-mode nil)
 
 ;; 改行コードを表示する
 (setq eol-mnemonic-dos "(CRLF)")
