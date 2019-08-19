@@ -1,6 +1,9 @@
 set -x GITDIR /home/rnakato/git
 set -x BINARYDIR $GITDIR/binaries
 
+### homebrew
+set -x PATH $PATH /home/linuxbrew/.linuxbrew/bin/
+
 ### GITDIR
 
 set -x PATH $PATH $GITDIR/Cgaln $GITDIR/DROMPA3 $GITDIR/DROMPA3/scripts $GITDIR/DROMPAplus/bin $GITDIR/DROMPAplus/otherbin $GITDIR/DROMPAplus/submodules/cpdf/Linux-Intel-64bit $GITDIR/SSP/bin $GITDIR/ChIPseqTools/bin $GITDIR/script_rnakato $GITDIR/script_Hi-C
