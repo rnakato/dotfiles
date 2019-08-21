@@ -28,7 +28,7 @@ alias gcjn="cd /mnt/Googledrive_MyDrive/Colab\ Notebooks/;jupyter notebook"
 alias dr='docker stop $(docker ps -q | tr "\n" " ") && docker rm $(docker ps -q -a | tr "\n" " ")'
 alias ds='docker rm $(docker ps -q -a | tr "\n" " ")'
 alias dpurge='docker stop $(docker ps -q) && docker rmi $(docker images -q) -f'
-
+alias mypy2='singularity exec --bind /work /work/SingularityImages/rnakato_anaconda.img python '
 
 GITDIR=/home/rnakato/git
 BINARYDIR=$GITDIR/binaries
