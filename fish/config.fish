@@ -54,7 +54,7 @@ alias g11='g++ -std=c++11'
 alias g14='g++ -std=c++14'
 alias jn='jupyter notebook'
 alias i='ipython --pylab'
-alias juicebox='java -Xms512m -Xmx2048m -jar /home/rnakato/git/binaries/Aidenlab/Juicebox.jar'
+alias juicebox='java -Xmx2048m -jar /home/rnakato/git/binaries/Aidenlab/Juicebox.jar'
 alias GoogleColab="cd /mnt/Googledrive_MyDrive/Colab\ Notebooks/;jupyter notebook"
 alias dstop_rm='docker stop (docker ps -q | tr "\n" " ") && docker rm (docker ps -q -a | tr "\n" " ")'
 alias d_rm='docker rm (docker ps -q -a | tr "\n" " ")'
