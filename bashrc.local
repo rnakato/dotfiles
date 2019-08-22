@@ -1,0 +1,12 @@
+GITDIR=/home/rnakato/git
+
+### plenv
+export PLENV_ROOT=$GITDIR/plenv
+export PATH=$PLENV_ROOT/bin:$PATH
+eval "$(plenv init -)"
+
+### pyenv
+python_version=anaconda3-2018.12
+export PYENV_ROOT=$GITDIR/pyenv
+export PATH=$PYENV_ROOT/bin:$PATH
+eval "$(pyenv init -)"

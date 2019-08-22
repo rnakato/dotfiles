@@ -1,10 +1,7 @@
-source ~/alias
+source /home/rnakato/git/dotfiles/bashrc.local
 
-alias dr='docker stop $(docker ps -q | tr "\n" " ") && docker rm $(docker ps -q -a | tr "\n" " ")'
-alias ds='docker rm $(docker ps -q -a | tr "\n" " ")'
-alias dpurge='docker stop $(docker ps -q) && docker rmi $(docker images -q) -f'
+export PATH=$PATH:/usr/local/bin:
 
-GITDIR=/home/rnakato/git
 BINARYDIR=$GITDIR/binaries
 
 ### GITDIR
@@ -16,6 +13,20 @@ export PATH=$PATH:$GITDIR/UCSC_utils:$GITDIR/motif/meme_4.12.0/build/bin
 export PATH=$PATH:$BINARYDIR/sratoolkit.2.9.6-ubuntu64/bin:$BINARYDIR/FastQC
 export PATH=$PATH:$BINARYDIR/hisat2-2.1.0/:$BINARYDIR/stringtie-1.3.5.Linux_x86_64:$BINARYDIR/gffcompare-0.10.6.Linux_x86_64/:$BINDIR/kallisto-current
 export PATH=$PATH::$BINARYDIR/userApps/bin:$BINARYDIR/circos-0.69-6/bin
+
+# Go
+export GOPATH=${HOME}/go
+export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin
+
+# fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+### alias
+source ~/.alias
+
+alias dr='docker stop $(docker ps -q | tr "\n" " ") && docker rm $(docker ps -q -a | tr "\n" " ")'
+alias ds='docker rm $(docker ps -q -a | tr "\n" " ")'
+alias dpurge='docker stop $(docker ps -q) && docker rmi $(docker images -q) -f'
 
 
 ### docker

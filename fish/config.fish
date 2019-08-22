@@ -1,4 +1,5 @@
-set -x GITDIR /home/rnakato/git
+source $HOME/.config/fish/config.local.fish
+
 set -x BINARYDIR $GITDIR/binaries
 
 ### GITDIR
@@ -11,8 +12,11 @@ set -x PATH $PATH $BINARYDIR/sratoolkit.2.9.6-1-ubuntu64/bin $BINARYDIR/FastQC
 set -x PATH $PATH $BINARYDIR/hisat2-2.1.0/ $BINARYDIR/stringtie-1.3.5.Linux_x86_64 $BINARYDIR/gffcompare-0.10.6.Linux_x86_64/ $BINDIR/kallisto-current
 set -x PATH $PATH $BINARYDIR/userApps/bin
 
+# alias
 source $HOME/.alias
-source $HOME/.config/fish/config.local.fish
+alias dstop_rm='docker stop (docker ps -q | tr "\n" " ") && docker rm (docker ps -q -a | tr "\n" " ")'
+alias d_rm='docker rm (docker ps -q -a | tr "\n" " ")'
+alias d_purge='docker stop (docker ps -q) and docker rmi (docker images -q) -f'
 
 ### homebrew
 set -x PATH $PATH /home/linuxbrew/.linuxbrew/bin/
@@ -31,13 +35,6 @@ if test $status -ne 0
   source $SSH_AGENT_FILE
   ssh-add $HOME/.ssh/id_rsa
 end
-
-### aliases
-source $HOME/.config/fish/../alias
-
-alias dstop_rm='docker stop (docker ps -q | tr "\n" " ") && docker rm (docker ps -q -a | tr "\n" " ")'
-alias d_rm='docker rm (docker ps -q -a | tr "\n" " ")'
-alias d_purge='docker stop (docker ps -q) and docker rmi (docker images -q) -f'
 
 ### functions
 function dbash

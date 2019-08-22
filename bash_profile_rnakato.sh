@@ -1,6 +1,3 @@
-
-export PATH=$PATH:/usr/local/bin:
-
 GITDIR=/work/git
 BINARYDIR=$GITDIR/binaries
 
@@ -20,9 +17,6 @@ export PATH=$PATH::$BINARYDIR/userApps/bin:$BINARYDIR/circos-0.69-6/bin
 ### Juicer
 alias juicebox='java -Xms512m -Xmx2048m -jar $BINARYDIR/Aidenlab/Juicebox.jar'
 
-# Added by the mirnylab install script.
-export PYTHONPATH="$PYTHONPATH:$GITDIR/hiclib/src"
-
 ### plenv
 perl_version=5.28.1
 export PLENV_ROOT=$GITDIR/plenv
@@ -35,18 +29,6 @@ export PYENV_ROOT=$GITDIR/pyenv
 export PATH=$PYENV_ROOT/bin:$PATH
 eval "$(pyenv init -)"
 alias py2="source $PYENV_ROOT/versions/$python_version/bin/activate py2"
-
-### docker
-function drun()
-{
-    docker run -it --rm -u $(id -u):$(id -g) \
-    -v /etc/group:/etc/group:ro \
-    -v /etc/passwd:/etc/passwd:ro \
-    -v /etc/shadow:/etc/shadow:ro \
-    -v /etc/sudoers.d:/etc/sudoers.d:ro \
-    $@
-    /bin/bash
-}
 
 ### java
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/amd64/server:/usr/include/x86_64-linux-gnu
