@@ -5,6 +5,8 @@ export PLENV_ROOT=$HOME/.plenv
 export PATH=$PLENV_ROOT/bin:$PLENV_ROOT/shims:$PATH
 eval "$(plenv init -)"
 
+export PATH=$PATH:/usr/local/bin:/home/linuxbrew/.linuxbrew/bin/
+
 ### pyenv
 python_version=anaconda3-2018.12
 export PYENV_ROOT=$HOME/.pyenv
