@@ -1,6 +1,6 @@
 source /home/rnakato/git/dotfiles/bashrc.local
 
-export PATH=$PATH:/usr/local/bin:
+export PATH=$PATH:/usr/local/bin:/home/linuxbrew/.linuxbrew/bin/
 
 BINARYDIR=$GITDIR/binaries
 
