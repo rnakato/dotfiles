@@ -25,17 +25,6 @@ set -x PATH $PATH /home/linuxbrew/.linuxbrew/bin/
 # https://qiita.com/hennin/items/33758226a0de8c963ddf
 set -x FZF_LEGACY_KEYBINDINGS 0
 
-#set -x SSH_AGENT_FILE $HOME/.ssh/ssh-agent
-#if test -f $SSH_AGENT_FILE
-#   source $SSH_AGENT_FILE
-#end
-#ssh-add -l > /dev/null ^&1
-#if test $status -ne 0
-#  ssh-agent -c > $SSH_AGENT_FILE
-#  source $SSH_AGENT_FILE
-#  ssh-add $HOME/.ssh/id_rsa
-#end
-
 ### functions
 function dbash
     docker exec -it $argv bash
