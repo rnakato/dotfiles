@@ -1,4 +1,4 @@
-source /home/rnakato/git/dotfiles/bashrc.local
+source $HOME/git/dotfiles/bashrc.local
 
 export PATH=$PATH:/usr/local/bin:/home/linuxbrew/.linuxbrew/bin/
 

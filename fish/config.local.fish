@@ -1,8 +1,9 @@
-set -x GITDIR /home/rnakato/git
+set -x GITDIR /work/git
 
-set -x PATH $HOME/.plenv/bin $PATH
+set -x PATH $GITDIR/plenv/bin $GITDIR/plenv/shims $PATH
 eval (plenv init - | source)
-set -x PATH $HOME/.pyenv/bin $PATH
+set -x PYENV_ROOT $GITDIR/pyenv
+set -x PATH $PYENV_ROOT/bin $PYENV_ROOT/shims $PATH
 eval (pyenv init - | source)
 
 #set -x SSH_AGENT_FILE $HOME/.ssh/ssh-agent
