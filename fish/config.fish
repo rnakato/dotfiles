@@ -35,7 +35,7 @@ set -x LD_LIBRARY_PATH $HOME/.cudnn/active/cuda/lib64 $LD_LIBRARY_PATH
 set -x CPATH $HOME/.cudnn/active/cuda/include $CPATH
 set -x LIBRARY_PATH $HOME/.cudnn/active/cuda/lib64 $LIBRARY_PATH
 # path for chainer
-set -x vCUDA cuda-9.2
+set -x vCUDA cuda-10.2
 set -x PATH /usr/local/$vCUDA/bin $PATH
 set -x LD_LIBRARY_PATH /usr/local/$vCUDA/lib64 $LD_LIBRARY_PATH
 set -x CFLAGS -I~/.cudnn/active/cuda/include
