@@ -33,7 +33,7 @@ export LD_LIBRARY_PATH=$HOME/.cudnn/active/cuda/lib64:$LD_LIBRARY_PATH
 export CPATH=$HOME/.cudnn/active/cuda/include:$CPATH
 export LIBRARY_PATH=$HOME/.cudnn/active/cuda/lib64:$LIBRARY_PATH
 # path for chainer
-vCUDA=cuda-10.2
+vCUDA=cuda-10.1
 export PATH=/usr/local/$vCUDA/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/$vCUDA/lib64:$LD_LIBRARY_PATH
 export CFLAGS=-I~/.cudnn/active/cuda/include
