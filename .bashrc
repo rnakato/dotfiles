@@ -29,23 +29,13 @@ alias ds='docker rm $(docker ps -q -a | tr "\n" " ")'
 alias dpurge='docker stop $(docker ps -q) && docker rmi $(docker images -q) -f'
 alias E='emacsclient -c'
 
-# path for cuDNN
+# path for GPU
 export LD_LIBRARY_PATH=$HOME/.cudnn/active/cuda/lib64:$LD_LIBRARY_PATH
 export CPATH=$HOME/.cudnn/active/cuda/include:$CPATH
 export LIBRARY_PATH=$HOME/.cudnn/active/cuda/lib64:$LIBRARY_PATH
-# path for chainer
 vCUDA=cuda-10.1
 export PATH=/usr/local/$vCUDA/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/$vCUDA/lib64:$LD_LIBRARY_PATH
 export CFLAGS=-I~/.cudnn/active/cuda/include
 export LDFLAGS=-L~/.cudnn/active/cuda/lib64
 export LD_LIBRARY_PATH=~/.cudnn/active/cuda/lib64:$LD_LIBRARY_PATH
-
-
-#SSH_AGENT_FILE=$HOME/.ssh/ssh-agent
-#test -f $SSH_AGENT_FILE && source $SSH_AGENT_FILE
-#if ! ssh-add -l > /dev/null 2>&1; then
-#  ssh-agent > $SSH_AGENT_FILE
-#  source $SSH_AGENT_FILE
-#  ssh-add $HOME/.ssh/id_rsa
-#fi
