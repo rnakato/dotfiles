@@ -1,4 +1,4 @@
-hostname=(hostname)
+set -x hostname (hostname)
 if test $hostname = "horn" \
      -o $hostname = "accordion" \
      -o $hostname = "euphonium" \
