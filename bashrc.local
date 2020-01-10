@@ -7,13 +7,13 @@ if test $hostname = "horn" \
      -o $hostname = "saxophone"
 then
     GITDIR=/work/git
-    export PLENV_ROOT=$HOME/.plenv
+    export PLENV_ROOT=$GITDIR/plenv
     export PYENV_ROOT=$GITDIR/pyenv
     export DISPLAY=172.20.224.1:0
 else
     GITDIR=$HOME/git
     export PLENV_ROOT=$HOME/.plenv
-    export PYENV_ROOT=$GITDIR/pyenv
+    export PYENV_ROOT=$HOME/.pyenv
 
     SSH_AGENT_FILE=$HOME/.ssh/ssh-agent
     test -f $SSH_AGENT_FILE && source $SSH_AGENT_FILE

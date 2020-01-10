@@ -1,15 +1,13 @@
-set -x hostname (hostname)
-if test $hostname = "horn" \
-     -o $hostname = "accordion" \
-     -o $hostname = "euphonium" \
-     -o $hostname = "synthesizer" \
-     -o $hostname = "saxophone"
+if test (hostname) = "horn" \
+     -o (hostname) = "accordion" \
+     -o (hostname) = "euphonium" \
+     -o (hostname) = "synthesizer" \
+     -o (hostname) = "saxophone"
 
      set -x GITDIR /work/git
      set -x PLENV_ROOT $GITDIR/plenv
      set -x PYENV_ROOT $GITDIR/pyenv
 
-#    export DISPLAY=172.20.224.1:0
 else
      set -x GITDIR $HOME/git
      set -x PLENV_ROOT $HOME/.plenv
@@ -27,6 +25,7 @@ else
      end
 
     export DISPLAY=172.20.224.1:0
+#     export DISPLAY=localhost:0.0
 end
 
 set -x PATH $PLENV_ROOT/bin $PLENV_ROOT/shims $PATH
