@@ -17,7 +17,7 @@ source $HOME/.alias
 alias dstop_rm='docker stop (docker ps -q) && docker rm (docker ps -q -a)'
 alias d_rm='docker rm (docker ps -q -a)'
 alias d_purge='docker stop (docker ps -q) and docker rmi (docker images -q) -f'
-alias E='fish -c "emacsclient -c"'
+alias E='emacsclient -c &'
 
 ### homebrew
 set -x PATH $PATH /home/linuxbrew/.linuxbrew/bin/
