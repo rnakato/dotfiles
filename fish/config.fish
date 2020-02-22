@@ -3,7 +3,7 @@ source $HOME/.config/fish/config.local.fish
 set -x BINARYDIR $GITDIR/binaries
 
 ### GITDIR
-set -x PATH $PATH $GITDIR/Cgaln $GITDIR/DROMPA3 $GITDIR/DROMPA3/scripts $GITDIR/DROMPAplus/bin $GITDIR/DROMPAplus/otherbin $GITDIR/DROMPAplus/submodules/cpdf/Linux-Intel-64bit $GITDIR/SSP/bin $GITDIR/ChIPseqTools/bin $GITDIR/script_rnakato $GITDIR/script_RNAseq $GITDIR/script_Hi-C
+set -x PATH $PATH $GITDIR/Cgaln $GITDIR/DROMPA3 $GITDIR/DROMPA3/scripts $GITDIR/DROMPAplus/bin $GITDIR/DROMPAplus/otherbins $GITDIR/DROMPAplus/submodules/cpdf/Linux-Intel-64bit $GITDIR/SSP/bin $GITDIR/ChIPseqTools/bin $GITDIR/script_rnakato $GITDIR/script_RNAseq $GITDIR/script_Hi-C
 set -x PATH $PATH $GITDIR/RSEM $GITDIR/STAR/bin/Linux_x86_64_static $GITDIR/bedtools2/bin $GITDIR/bamtools/bin $GITDIR/salmon/bin $GITDIR/HOMER/bin $GITDIR/UCSC_utils/ $GITDIR/BaMMmotif2/build/bin
 set -x PATH $PATH $GITDIR/UCSC_utils $GITDIR/motif/meme-5.0.5/build/bin
 
@@ -17,10 +17,10 @@ source $HOME/.alias
 alias dstop_rm='docker stop (docker ps -q) && docker rm (docker ps -q -a)'
 alias d_rm='docker rm (docker ps -q -a)'
 alias d_purge='docker stop (docker ps -q) and docker rmi (docker images -q) -f'
-alias E='emacsclient -c &'
+alias E="emacsclient"
 
 ### homebrew
-set -x PATH $PATH /home/linuxbrew/.linuxbrew/bin/
+set -x PATH $PATH /home/linuxbrew/.linuxbrew/bin/ $HOME/.cargo/bin
 
 # for fzf
 # https://qiita.com/hennin/items/33758226a0de8c963ddf

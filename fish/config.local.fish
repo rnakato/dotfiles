@@ -24,7 +24,7 @@ else
         ssh-add $HOME/.ssh/id_rsa
      end
 
-    export DISPLAY=172.20.224.1:0
+    export DISPLAY=172.18.48.1:0
 #     export DISPLAY=localhost:0.0
 end
 
