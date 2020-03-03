@@ -17,7 +17,7 @@ else
      if test -f $SSH_AGENT_FILE
         source $SSH_AGENT_FILE
      end
-     ssh-add -l > /dev/null ^&1
+     ssh-add -l > /dev/null #^&1
      if test $status -ne 0
         ssh-agent -c > $SSH_AGENT_FILE
         source $SSH_AGENT_FILE
