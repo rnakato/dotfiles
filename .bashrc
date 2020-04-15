@@ -1,6 +1,6 @@
 source $HOME/git/dotfiles/bashrc.local
 
-export PATH=$PATH:/usr/local/bin:/home/linuxbrew/.linuxbrew/bin/
+export PATH=$PATH:/usr/local/bin:/home/linuxbrew/.linuxbrew/bin/:$HOME/.cargo/bin
 
 BINARYDIR=$GITDIR/binaries
 
