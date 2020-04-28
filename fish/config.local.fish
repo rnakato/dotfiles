@@ -31,4 +31,4 @@ end
 set -x PATH $PLENV_ROOT/bin $PLENV_ROOT/shims $PATH
 eval (plenv init - | source)
 set -x PATH $PYENV_ROOT/bin $PYENV_ROOT/versions/anaconda3-2019.10/bin/ $PATH
-eval (pyenv init - | source)
+#eval (pyenv init - | source)

@@ -30,3 +30,4 @@ alias mypy2='singularity exec --bind /work /work/SingularityImages/rnakato_anaco
 alias pyinst='python setup.py install'
 alias pyuninst='python setup.py install --record files.txt; cat files.txt | xargs rm -rf; rm files.txt'
 alias killemacs="emacsclient -e '(kill-emacs)'"
+alias conf="vim /home/rnakato/git/dotfiles/fish/config.local.fish"
