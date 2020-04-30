@@ -24,11 +24,11 @@ else
         ssh-add $HOME/.ssh/id_rsa
      end
 
-#    export DISPLAY=172.18.48.1:0
-     export DISPLAY=localhost:0.0
+    export DISPLAY=172.23.160.1:0
+#     export DISPLAY=localhost:0.0
 end
 
 set -x PATH $PLENV_ROOT/bin $PLENV_ROOT/shims $PATH
 eval (plenv init - | source)
-set -x PATH $PYENV_ROOT/bin $PYENV_ROOT/versions/anaconda3-2019.10/bin/ $PATH
+set -x PATH $PYENV_ROOT/bin $PYENV_ROOT/shims $PATH
 #eval (pyenv init - | source)
