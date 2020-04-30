@@ -103,9 +103,9 @@
 (show-paren-mode 1)
 
 ;; ウィンドウ内に収まらないときだけ、カッコ内も光らせる
-(setq show-paren-style 'mixed)
-(set-face-background 'show-paren-match-face "grey")
-(set-face-foreground 'show-paren-match-face "black")
+;;(setq show-paren-style 'mixed)
+;;(set-face-background 'show-paren-match-face "grey")
+;;(set-face-foreground 'show-paren-match-face "black")
 
 ;; スクロールは１行ごとに
 (setq scroll-conservatively 1)
