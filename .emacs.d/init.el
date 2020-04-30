@@ -7,7 +7,13 @@
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
-(add-to-list 'default-frame-alist '(font . "ricty-12"))
+(add-to-list 'default-frame-alist
+	'(font . "ricty-12"))
+
+;; Emacs26 + VcXsrv はダブルバッファリングのバグのせいでXウィンドウだと表示されない
+;;https://fujii.github.io/2018/08/30/emacs-on-wslinux/
+;;https://blog.pluser.net/posts/2018/emacs-double-buffering-cause-cursor-flickering/
+(set-frame-parameter nil 'inhibit-double-buffering t)
 
 ;; 環境を日本語、UTF-8にする
 (set-locale-environment nil)
@@ -97,7 +103,7 @@
 (blink-cursor-mode 0)
 
 ;; カーソル行をハイライトする
-(global-hl-line-mode t)
+;;(global-hl-line-mode t)
 
 ;; 対応する括弧を光らせる
 (show-paren-mode 1)
@@ -116,11 +122,10 @@
 ;; 1 画面スクロール時にカーソルの画面上の位置をなるべく変えない
 (setq scroll-preserve-screen-position t)
 
-
 ;; C-kで行全体を削除する
 (setq kill-whole-line t)
 
-;;; dired設定
+;; dired設定
 (require 'dired-x)
 
 ;; "yes or no" の選択を "y or n" にする
@@ -148,7 +153,6 @@
 ;; dabbrev 時の置換
 (setq dabbrev-case-replace nil)
 
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -156,7 +160,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (magit rainbow-delimiters auto-complete hiwin ess yasnippet company))))
+    (whitespace-cleanup-mode magit rainbow-delimiters auto-complete hiwin ess yasnippet company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -164,7 +168,7 @@
  ;; If there is more than one, they won't work right.
  )
 
-;; 起動時のフレーム設定
+ ;; 起動時のフレーム設定
 (setq initial-frame-alist
       (append (list
                '(top . 50)
@@ -183,29 +187,28 @@
  ;; ;; インクリメンタルサーチ
  ;; (setq isearch-case-fold-search nil)
 
+;; バッファー名の検索
+(setq read-buffer-completion-ignore-case t)
 
- ;; バッファー名の検索
- (setq read-buffer-completion-ignore-case t)
+;; ファイル名の検索
+(setq read-file-name-completion-ignore-case t)
 
- ;; ファイル名の検索
- (setq read-file-name-completion-ignore-case t)
-
- (when (require 'auto-complete-config nil t)
+(when (require 'auto-complete-config nil t)
    (ac-config-default))
 
- ;; 空白を一度に削除
- (if (fboundp 'global-hungry-delete-mode)
+;; 空白を一度に削除
+(if (fboundp 'global-hungry-delete-mode)
      (global-hungry-delete-mode 1))
 
- ;; 改行時などに自動でインデント
- ;;   (C-j と C-m の入れ替え)
- (if (fboundp 'electric-indent-mode)
-     (electric-indent-mode 0))
+;; 改行時などに自動でインデント
+;;   (C-j と C-m の入れ替え)
+(if (fboundp 'electric-indent-mode)
+    (electric-indent-mode 0))
 
 ;; C 系共通
- ;; ================================================================
+;; ================================================================
 
- (defun my-all-cc-mode-init ()
+(defun my-all-cc-mode-init ()
    ;; C 系(cc-mode を継承した)モード共通の設定を記述
 
    ;; 空白などを一度に削除
@@ -218,14 +221,14 @@
    ;; 自動インデントも一緒に ON になる
    ;; (c-toggle-auto-newline 1)
 
-   )
- (add-hook 'c-mode-common-hook 'my-all-cc-mode-init)
+ )
+(add-hook 'c-mode-common-hook 'my-all-cc-mode-init)
 
- ;; .h でも C++
- (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+;; .h でも C++
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 
- ;; ediff 時にフレームを使わない
- (setq ediff-window-setup-function 'ediff-setup-windows-plain)
+;; ediff 時にフレームを使わない
+(setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
 ;; https://github.com/Fanael/rainbow-delimiters
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
@@ -241,9 +244,6 @@
 ;; ファイル編集時に，bufferを再読込
 (global-auto-revert-mode 1)
 
-
-;; ファイルの保存時に行末のスペースや末尾の改行を削除する
-;; https://qiita.com/itiut@github/items/4d74da2412a29ef59c3a
 (require 'whitespace)
 (setq whitespace-style '(face           ; faceで可視化
                          trailing       ; 行末
