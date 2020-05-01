@@ -24,7 +24,7 @@ else
         ssh-add $HOME/.ssh/id_rsa
      end
 
-    export DISPLAY=172.23.160.1:0
+    export DISPLAY=(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
 #     export DISPLAY=localhost:0.0
 end
 
