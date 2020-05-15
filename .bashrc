@@ -5,9 +5,9 @@ export PATH=$PATH:/usr/local/bin:/home/linuxbrew/.linuxbrew/bin/:$HOME/.cargo/bi
 BINARYDIR=$GITDIR/binaries
 
 ### GITDIR
-export PATH=$PATH:$GITDIR/Cgaln:$GITDIR/DROMPA3:$GITDIR/DROMPA3/scripts:$GITDIR/DROMPAplus/bin:$GITDIR/DROMPAplus/otherbin:$GITDIR/DROMPAplus/submodules/cpdf/Linux-Intel-64bit:$GITDIR/SSP/bin:$GITDIR/ChIPseqTools/bin:$GITDIR/script_rnakato:$GITDIR/script_Hi-C
-export PATH=$PATH:$GITDIR/bedtools2/bin:$GITDIR/bamtools/bin:$GITDIR/salmon/bin:$GITDIR/HOMER/bin:$GITDIR/UCSC_utils/:$GITDIR/BaMMmotif2/build/bin
-export PATH=$PATH:$GITDIR/UCSC_utils:$GITDIR/motif/meme_4.12.0/build/bin
+export PATH=$PATH:$GITDIR/Cgaln:$GITDIR/DROMPA3:$GITDIR/DROMPA3/scripts:$GITDIR/DROMPAplus/bin:$GITDIR/DROMPAplus/otherbins:$GITDIR/SSP/bin:$GITDIR/ChIPseqTools/bin:$GITDIR/script_rnakato:$GITDIR/script_Hi-C
+export PATH=$PATH:$GITDIR/bedtools2/bin:$GITDIR/bamtools/bin:$GITDIR/salmon/bin:$GITDIR/HOMER/bin:$GITDIR/UCSC_utils/
+export PATH=$PATH:$GITDIR/UCSC_utils
 
 ### BINDIR
 export PATH=$PATH:$BINARYDIR/RSEM-1.3.3:$BINARYDIR/STAR-2.7.3a/bin/Linux_x86_64_static:$BINARYDIR/sratoolkit.2.9.6-ubuntu64/bin:$BINARYDIR/FastQC
