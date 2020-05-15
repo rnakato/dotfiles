@@ -4,16 +4,19 @@ set -x BINARYDIR $GITDIR/binaries
 
 ### GITDIR
 set -x PATH $PATH $GITDIR/Cgaln $GITDIR/DROMPA3 $GITDIR/DROMPA3/scripts $GITDIR/DROMPAplus/bin $GITDIR/DROMPAplus/otherbins $GITDIR/DROMPAplus/submodules/cpdf/Linux-Intel-64bit $GITDIR/SSP/bin $GITDIR/ChIPseqTools/bin $GITDIR/script_rnakato $GITDIR/script_RNAseq $GITDIR/script_Hi-C
-set -x PATH $PATH $GITDIR/bedtools2/bin $GITDIR/bamtools/bin $GITDIR/salmon/bin $GITDIR/HOMER/bin $GITDIR/UCSC_utils/ $GITDIR/BaMMmotif2/build/bin
-set -x PATH $PATH $GITDIR/UCSC_utils $GITDIR/motif/meme-5.0.5/build/bin
+set -x PATH $PATH $GITDIR/bedtools2/bin $GITDIR/bamtools/bin $GITDIR/salmon/bin $GITDIR/HOMER/bin $GITDIR/UCSC_utils/
+set -x PATH $PATH $GITDIR/UCSC_utils
 
 ### BINDIR
-set -x PATH $PATH $BINARYDIR/RSEM-1.3.3 $BINARYDIR/STAR-2.7.3a/bin/Linux_x86_64_static $BINARYDIR/sratoolkit.2.9.6-1-ubuntu64/bin $BINARYDIR/FastQC
-set -x PATH $PATH $BINARYDIR/hisat2-2.1.0/ $BINARYDIR/stringtie-1.3.5.Linux_x86_64 $BINARYDIR/gffcompare-0.10.6.Linux_x86_64/ $BINDIR/kallisto-current
+set -x PATH $PATH $BINARYDIR/RSEM-1.3.3 $BINARYDIR/STAR-2.7.3a/bin/Linux_x86_64_static $BINARYDIR/FastQC
+set -x PATH $PATH $BINARYDIR/gffcompare-0.10.6.Linux_x86_64/
 set -x PATH $PATH $BINARYDIR/userApps/bin
 
 ### miniconda (horn)
 set -x PATH /work/miniconda3/bin $PATH
+
+### Emacs (Windows)
+set -x PATH $PATH /mnt/c/emacs-26.3-x86_64/bin
 
 # alias
 source $HOME/.alias
@@ -21,7 +24,6 @@ alias dstop_rm='docker stop (docker ps -q) && docker rm (docker ps -q -a)'
 alias d_rm='docker rm (docker ps -q -a)'
 alias dstop_purge='docker stop (docker ps -q) && docker rmi (docker images -q) -f'
 alias d_purge='docker rmi (docker images -q) -f'
-alias E="emacsclient"
 
 ### homebrew
 set -x PATH $PATH /home/linuxbrew/.linuxbrew/bin/ $HOME/.cargo/bin

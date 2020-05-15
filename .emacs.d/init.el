@@ -10,6 +10,9 @@
 (add-to-list 'default-frame-alist
 	'(font . "ricty-12"))
 
+(setq x-select-enable-clipboard t)
+
+
 ;; Emacs26 + VcXsrv はダブルバッファリングのバグのせいでXウィンドウだと表示されない
 ;;https://fujii.github.io/2018/08/30/emacs-on-wslinux/
 ;;https://blog.pluser.net/posts/2018/emacs-double-buffering-cause-cursor-flickering/
@@ -235,7 +238,7 @@
 
 ;; git関係
 ;; git-gutter-fringe
-(global-git-gutter-mode t)
+;;(global-git-gutter-mode t)
 
 ;; magit
 (global-set-key (kbd "C-c C-g") 'magit-diff-working-tree)
