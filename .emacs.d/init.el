@@ -238,7 +238,7 @@
 
 ;; git関係
 ;; git-gutter-fringe
-;;(global-git-gutter-mode t)
+(global-git-gutter-mode t)
 
 ;; magit
 (global-set-key (kbd "C-c C-g") 'magit-diff-working-tree)
