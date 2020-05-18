@@ -12,7 +12,10 @@ set -x PATH $PATH $BINARYDIR/RSEM-1.3.3 $BINARYDIR/STAR-2.7.3a/bin/Linux_x86_64_
 set -x PATH $PATH $BINARYDIR/gffcompare-0.10.6.Linux_x86_64/
 set -x PATH $PATH $BINARYDIR/userApps/bin
 
-### miniconda (horn)
+# CellRanger
+set -x PATH $PATH /work/CellRanger/cellranger-current/
+
+### miniconda
 set -x PATH /work/miniconda3/bin $PATH
 
 ### Emacs (Windows)
