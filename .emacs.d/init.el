@@ -12,6 +12,8 @@
 
 (setq x-select-enable-clipboard t)
 
+(require 'helm-config)
+
 (defun elisp-mode-hooks ()
   "lisp-mode-hooks"
   (when (require 'eldoc nil t)
