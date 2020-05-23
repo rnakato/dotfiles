@@ -53,6 +53,13 @@
 ;; wgrepの設定
 (require 'wgrep nil t)
 
+;;; P135 編集履歴の記憶 undohist
+(package-install 'undohist)
+;; undohistの設定
+(when (require 'undohist nil t)
+  (undohist-initialize))
+
+
 (defun elisp-mode-hooks ()
   "lisp-mode-hooks"
   (when (require 'eldoc nil t)
@@ -240,7 +247,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (wgrep moccur-edit git-gutter helm-descbinds whitespace-cleanup-mode magit rainbow-delimiters auto-complete hiwin ess yasnippet company))))
+    (undohist wgrep moccur-edit git-gutter helm-descbinds whitespace-cleanup-mode magit rainbow-delimiters auto-complete hiwin ess yasnippet company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
