@@ -12,7 +12,6 @@
 
 (setq x-select-enable-clipboard t)
 
-
 ;; Emacs26 + VcXsrv はダブルバッファリングのバグのせいでXウィンドウだと表示されない
 ;;https://fujii.github.io/2018/08/30/emacs-on-wslinux/
 ;;https://blog.pluser.net/posts/2018/emacs-double-buffering-cause-cursor-flickering/
@@ -41,6 +40,11 @@
 
 ;; 選択領域を削除キーで一括削除
 (delete-selection-mode t)
+
+;; 折り返しトグルコマンド
+(define-key global-map (kbd "C-c l") 'toggle-truncate-lines)
+;; "C-t" でウィンドウを切り替える。初期値はtranspose-chars
+(define-key global-map (kbd "C-t") 'other-window)
 
 ;; shift + 矢印キーで領域選択
 (if (fboundp 'pc-selection-mode)
