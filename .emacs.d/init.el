@@ -12,6 +12,13 @@
 
 (setq x-select-enable-clipboard t)
 
+(defun elisp-mode-hooks ()
+  "lisp-mode-hooks"
+  (when (require 'eldoc nil t)
+    (setq eldoc-idle-delay 0.2)
+    (setq eldoc-echo-area-use-multiline-p t)
+    (turn-on-eldoc-mode)))
+
 ;; Emacs26 + VcXsrv はダブルバッファリングのバグのせいでXウィンドウだと表示されない
 ;;https://fujii.github.io/2018/08/30/emacs-on-wslinux/
 ;;https://blog.pluser.net/posts/2018/emacs-double-buffering-cause-cursor-flickering/
@@ -74,16 +81,31 @@
 (setq kill-read-only-ok t)
 
 ;; バックアップファイルを作成させない
-(setq make-backup-files nil)
+;;(setq make-backup-files nil)
+;; 終了時にオートセーブファイルを削除する
+;;(setq delete-auto-save-files t)
+
+;; バックアップとオートセーブファイルを~/.emacs.d/backups/へ集める
+(add-to-list 'backup-directory-alist
+             (cons "." "~/.emacs.d/backups/"))
+(setq auto-save-file-name-transforms
+      `((".*" ,(expand-file-name "~/.emacs.d/backups/") t)))
+
+;; オートセーブファイル作成までの秒間隔
+(setq auto-save-timeout 15)
+;; オートセーブファイル作成までのタイプ間隔
+(setq auto-save-interval 60)
+
+;; ファイルが #! から始まる場合、+xを付けて保存する
+(add-hook 'after-save-hook
+          'executable-make-buffer-file-executable-if-script-p)
+
 
 ;; lockfile 実行の有無
 (setq create-lockfiles nil)
 
-;; 終了時にオートセーブファイルを削除する
-(setq delete-auto-save-files t)
-
 ;; タブにスペースを使用する
-;;(setq-default tab-width 4 indent-tabs-mode nil)
+(setq-default tab-width 4 indent-tabs-mode nil)
 
 ;; 改行コードを表示する
 (setq eol-mnemonic-dos "(CRLF)")
@@ -110,7 +132,17 @@
 (blink-cursor-mode 0)
 
 ;; カーソル行をハイライトする
-;;(global-hl-line-mode t)
+(defface my-hl-line-face
+  ;; 背景がdarkならば背景色を紺に
+  '((((class color) (background dark))
+     (:background "NavyBlue" t))
+    ;; 背景がlightならば背景色を青に
+    (((class color) (background light))
+     (:background "LightSkyBlue" t))
+    (t (:bold t)))
+  "hl-line's my face")
+(setq hl-line-face 'my-hl-line-face)
+(global-hl-line-mode t)
 
 ;; 対応する括弧を光らせる
 (show-paren-mode 1)
