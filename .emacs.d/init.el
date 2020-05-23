@@ -32,6 +32,27 @@
   ;; C-M-oにhelm-c-moccur-occur-by-moccurを割り当てる
   (global-set-key (kbd "C-M-o") 'helm-c-moccur-occur-by-moccur))
 
+(when (require 'color-moccur nil t)
+  ;; M-oにoccur-by-moccurを割り当て
+  (define-key global-map (kbd "M-o") 'occur-by-moccur)
+  ;; スペース区切りでAND検索
+  (setq moccur-split-word t)
+  ;; ディレクトリ検索のとき除外するファイル
+  (add-to-list 'dmoccur-exclusion-mask "\\.DS_Store")
+  (add-to-list 'dmoccur-exclusion-mask "^#.+#$"))
+
+;; moccur-editの設定
+(require 'moccur-edit nil t)
+;; moccur-edit-finish-editと同時にファイルを保存する
+(defadvice moccur-edit-change-file
+  (after save-after-moccur-edit-buffer activate)
+  (save-buffer))
+
+;;; P133 grepの結果を直接編集 wgrep
+(package-install 'wgrep)
+;; wgrepの設定
+(require 'wgrep nil t)
+
 (defun elisp-mode-hooks ()
   "lisp-mode-hooks"
   (when (require 'eldoc nil t)
@@ -219,7 +240,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (git-gutter helm-descbinds whitespace-cleanup-mode magit rainbow-delimiters auto-complete hiwin ess yasnippet company))))
+    (wgrep moccur-edit git-gutter helm-descbinds whitespace-cleanup-mode magit rainbow-delimiters auto-complete hiwin ess yasnippet company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -253,7 +274,10 @@
 (setq read-file-name-completion-ignore-case t)
 
 (when (require 'auto-complete-config nil t)
-   (ac-config-default))
+  (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
+  (ac-config-default)
+  (setq ac-use-menu-map t)
+  (setq ac-ignore-case nil))
 
 ;; 空白を一度に削除
 (if (fboundp 'global-hungry-delete-mode)
