@@ -72,6 +72,15 @@
 (when (require 'goto-last-change nil t)
   (define-key global-map (kbd "\C-x\C-p") 'goto-last-change))
 
+;;; P139 ウィンドウの分割状態を管理──ElScreen
+(when (require 'elscreen nil t)
+  (elscreen-start)
+  ;; C-z C-zをタイプした場合にデフォルトのC-zを利用する
+;;  (if window-system
+;;      (define-key elscreen-map (kbd "C-z") 'iconify-or-deiconify-frame)
+;;    (define-key elscreen-map (kbd "C-z") 'suspend-emacs))
+)
+
 (defun elisp-mode-hooks ()
   "lisp-mode-hooks"
   (when (require 'eldoc nil t)
@@ -259,7 +268,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (goto-last-point ## undo-tree undohist wgrep moccur-edit git-gutter helm-descbinds whitespace-cleanup-mode magit rainbow-delimiters auto-complete hiwin ess yasnippet company))))
+    (elscreen goto-last-point ## undo-tree undohist wgrep moccur-edit git-gutter helm-descbinds whitespace-cleanup-mode magit rainbow-delimiters auto-complete hiwin ess yasnippet company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
