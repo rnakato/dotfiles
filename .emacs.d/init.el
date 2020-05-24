@@ -75,11 +75,33 @@
 ;;; P139 ウィンドウの分割状態を管理──ElScreen
 (when (require 'elscreen nil t)
   (elscreen-start)
-  ;; C-z C-zをタイプした場合にデフォルトのC-zを利用する
-;;  (if window-system
-;;      (define-key elscreen-map (kbd "C-z") 'iconify-or-deiconify-frame)
-;;    (define-key elscreen-map (kbd "C-z") 'suspend-emacs))
+  ;; C-z C-zをタイプした場合にデフォルトのC-zを利用する デフォルトはウィンドウ最小化
+  ;;  (if window-system
+  ;;      (define-key elscreen-map (kbd "C-z") 'iconify-or-deiconify-frame)
+  ;;    (define-key elscreen-map (kbd "C-z") 'suspend-emacs))
 )
+
+;;; P141-144 メモ書き・ToDo管理 howm
+(setq howm-directory (concat user-emacs-directory "howm"))
+;; howm-menuの言語を日本語に
+(setq howm-menu-lang 'ja)
+;; howmメモを1日1ファイルにする
+; (setq howm-file-name-format "%Y/%m/%Y-%m-%d.howm")
+;; howm-modeを読み込む
+(when (require 'howm-mode nil t)
+  (define-key global-map (kbd "C-c ,,") 'howm-menu))
+
+;; howmメモを保存と同時に閉じる
+(defun howm-save-buffer-and-kill ()
+  "howmメモを保存と同時に閉じます。"
+  (interactive)
+  (when (and (buffer-file-name)
+             (howm-buffer-p))
+    (save-buffer)
+    (kill-buffer nil)))
+
+;; C-c C-cでメモの保存と同時にバッファを閉じる
+(define-key howm-mode-map (kbd "C-c C-c") 'howm-save-buffer-and-kill)
 
 (defun elisp-mode-hooks ()
   "lisp-mode-hooks"
@@ -268,7 +290,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (elscreen goto-last-point ## undo-tree undohist wgrep moccur-edit git-gutter helm-descbinds whitespace-cleanup-mode magit rainbow-delimiters auto-complete hiwin ess yasnippet company))))
+    (howm elscreen goto-last-point ## undo-tree undohist wgrep moccur-edit git-gutter helm-descbinds whitespace-cleanup-mode magit rainbow-delimiters auto-complete hiwin ess yasnippet company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
