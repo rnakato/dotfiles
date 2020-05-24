@@ -49,16 +49,28 @@
   (save-buffer))
 
 ;;; P133 grepの結果を直接編集 wgrep
-(package-install 'wgrep)
-;; wgrepの設定
 (require 'wgrep nil t)
 
 ;;; P135 編集履歴の記憶 undohist
-(package-install 'undohist)
-;; undohistの設定
 (when (require 'undohist nil t)
   (undohist-initialize))
 
+;;; P136 アンドゥの分岐履歴 undo-tree
+(when (require 'undo-tree nil t)
+  ;; C-'にリドゥを割り当てる
+  (define-key global-map (kbd "C-'") 'undo-tree-redo)
+  (global-undo-tree-mode))
+
+;;; P137 カーソルの移動履歴 point-undo (deprecated?)
+;;(when (require 'point-undo nil t)
+;;   (define-key global-map (kbd "M-[") 'point-undo)
+;;   (define-key global-map (kbd "M-]") 'point-redo)
+;;  )
+(when (require 'goto-last-point nil t)
+  (define-key global-map (kbd "C-<") 'goto-last-point))
+
+(when (require 'goto-last-change nil t)
+  (define-key global-map (kbd "\C-x\C-p") 'goto-last-change))
 
 (defun elisp-mode-hooks ()
   "lisp-mode-hooks"
@@ -247,7 +259,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (undohist wgrep moccur-edit git-gutter helm-descbinds whitespace-cleanup-mode magit rainbow-delimiters auto-complete hiwin ess yasnippet company))))
+    (goto-last-point ## undo-tree undohist wgrep moccur-edit git-gutter helm-descbinds whitespace-cleanup-mode magit rainbow-delimiters auto-complete hiwin ess yasnippet company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
