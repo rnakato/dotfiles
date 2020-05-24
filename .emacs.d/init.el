@@ -103,6 +103,25 @@
 ;; C-c C-cでメモの保存と同時にバッファを閉じる
 (define-key howm-mode-map (kbd "C-c C-c") 'howm-save-buffer-and-kill)
 
+;; cua-modeの設定
+(cua-mode t) ; cua-modeをオン
+(setq cua-enable-cua-keys nil) ; CUAキーバインドを無効にする
+
+;; perl-modeをcperl-modeのエイリアスにする
+(defalias 'perl-mode 'cperl-mode)
+
+;;; P168 python-mode
+;; C-c C-v で構文check
+(setq python-check-command "flake8")
+
+;; Flycheck: 文法チェックを実行する
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+;;; 機能を追加する
+(with-eval-after-load 'flycheck
+  (flycheck-pos-tip-mode))
+
+
 (defun elisp-mode-hooks ()
   "lisp-mode-hooks"
   (when (require 'eldoc nil t)
@@ -290,7 +309,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (howm elscreen goto-last-point ## undo-tree undohist wgrep moccur-edit git-gutter helm-descbinds whitespace-cleanup-mode magit rainbow-delimiters auto-complete hiwin ess yasnippet company))))
+    (quickrun flycheck-pycheckers flycheck-perl6 flycheck-clang-tidy flycheck-pos-tip flycheck howm elscreen goto-last-point ## undo-tree undohist wgrep moccur-edit git-gutter helm-descbinds whitespace-cleanup-mode magit rainbow-delimiters auto-complete hiwin ess yasnippet company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
