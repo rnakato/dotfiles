@@ -12,23 +12,24 @@
 (setq x-select-enable-clipboard t)
 
 (require 'helm-config)
-(helm-descbinds-mode)
+;;(helm-descbinds-mode)
 (define-key global-map (kbd "M-y") 'helm-show-kill-ring)
-(when (require 'helm-c-moccur nil t)
-  (setq
+;;(when (require 'helm-c-moccur nil t)
+ ;; (setq
    ;; 執筆時点でエラーが出たため定義しているが、
    ;; 将来的には不要になる可能性が高い
-   helm-idle-delay 0.1
+ ;;  helm-idle-delay 0.1
    ;; helm-c-moccur用 `helm-idle-delay'
-   helm-c-moccur-helm-idle-delay 0.1
+ ;;  helm-c-moccur-helm-idle-delay 0.1
    ;; バッファの情報をハイライトする
-   helm-c-moccur-higligt-info-line-flag t
+ ;;  helm-c-moccur-higligt-info-line-flag t
    ;; 現在選択中の候補の位置をほかのwindowに表示する
-   helm-c-moccur-enable-auto-look-flag t
+ ;;  helm-c-moccur-enable-auto-look-flag t
    ;; 起動時にポイントの位置の単語を初期パターンにする
-   helm-c-moccur-enable-initial-pattern t)
+ ;;  helm-c-moccur-enable-initial-pattern t)
   ;; C-M-oにhelm-c-moccur-occur-by-moccurを割り当てる
-  (global-set-key (kbd "C-M-o") 'helm-c-moccur-occur-by-moccur))
+  ;;(global-set-key (kbd "C-M-o") 'helm-c-moccur-occur-by-moccur)
+ ;; )
 
 (when (require 'color-moccur nil t)
   ;; M-oにoccur-by-moccurを割り当て
@@ -307,7 +308,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (quickrun flycheck-pycheckers flycheck-perl6 flycheck-clang-tidy flycheck-pos-tip flycheck howm elscreen goto-last-point ## undo-tree undohist wgrep moccur-edit git-gutter helm-descbinds whitespace-cleanup-mode magit rainbow-delimiters auto-complete hiwin ess yasnippet company))))
+    (helm-describe-modes quickrun flycheck-pycheckers flycheck-perl6 flycheck-clang-tidy flycheck-pos-tip flycheck howm elscreen goto-last-point ## undo-tree undohist wgrep moccur-edit git-gutter helm-descbinds whitespace-cleanup-mode magit rainbow-delimiters auto-complete hiwin ess yasnippet company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
