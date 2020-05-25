@@ -7,8 +7,7 @@
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
-(add-to-list 'default-frame-alist
-	'(font . "ricty-12"))
+(add-to-list 'default-frame-alist '(font . "ricty-12"))
 
 (setq x-select-enable-clipboard t)
 
