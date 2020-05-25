@@ -2,7 +2,7 @@
 	email = rnakato@iam.u-tokyo.ac.jp
 	name = Ryuichiro Nakato
 [core]
-	editor = emacs
+	editor = vim
 [alias]
 	lol = log --graph --pretty=format:'%x09%C(auto) %h %Cgreen %ar %Creset%x09by%C(cyan ul)%a'n%Creset' %x09%C(auto)%s %d'
 	prune = fetch --prune
