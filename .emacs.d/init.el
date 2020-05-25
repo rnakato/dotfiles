@@ -14,7 +14,6 @@
 (require 'helm-config)
 (helm-descbinds-mode)
 (define-key global-map (kbd "M-y") 'helm-show-kill-ring)
-(package-install 'helm-c-moccur)
 (when (require 'helm-c-moccur nil t)
   (setq
    ;; 執筆時点でエラーが出たため定義しているが、
