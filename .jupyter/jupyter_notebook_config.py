@@ -874,6 +874,7 @@
 #  provided, this value will correspond to the value of the Gateway url with 'ws'
 #  in place of 'http'.  (JUPYTER_GATEWAY_WS_URL env var)
 #c.GatewayClient.ws_url = None
+
 import os
 from subprocess import check_call
 
