@@ -12,7 +12,8 @@ export PATH=$PATH:$GITDIR/UCSC_utils
 ### BINDIR
 export PATH=$PATH:$BINARYDIR/RSEM-1.3.3:$BINARYDIR/STAR-2.7.3a/bin/Linux_x86_64_static:$BINARYDIR/sratoolkit.2.9.6-ubuntu64/bin:$BINARYDIR/FastQC
 export PATH=$PATH:$BINARYDIR/hisat2-2.1.0/:$BINARYDIR/stringtie-1.3.5.Linux_x86_64:$BINARYDIR/gffcompare-0.10.6.Linux_x86_64/:$BINDIR/kallisto-current
-export PATH=$PATH::$BINARYDIR/userApps/bin:$BINARYDIR/circos-0.69-6/bin
+export PATH=$PATH:$BINARYDIR/userApps/bin
+export PATH=$PATH:$BINARYDIR/bedops_linux_x86_64-v2.4.39
 
 # Go
 export GOPATH=${HOME}/go
