@@ -120,6 +120,14 @@
 (with-eval-after-load 'flycheck
   (flycheck-pos-tip-mode))
 
+;; grip-mode
+;; Or start grip when opening a markdown/org buffer
+(add-hook 'markdown-mode-hook #'grip-mode)
+(add-hook 'org-mode-hook #'grip-mode)
+;; Use keybindings
+;;(use-package grip-mode
+;;  :ensure t
+;;  :hook ((markdown-mode org-mode) . grip-mode))
 
 (defun elisp-mode-hooks ()
   "lisp-mode-hooks"
@@ -308,7 +316,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (helm-describe-modes quickrun flycheck-pycheckers flycheck-perl6 flycheck-clang-tidy flycheck-pos-tip flycheck howm elscreen goto-last-point ## undo-tree undohist wgrep moccur-edit git-gutter helm-descbinds whitespace-cleanup-mode magit rainbow-delimiters auto-complete hiwin ess yasnippet company))))
+    (grip-mode helm-describe-modes quickrun flycheck-pycheckers flycheck-perl6 flycheck-clang-tidy flycheck-pos-tip flycheck howm elscreen goto-last-point ## undo-tree undohist wgrep moccur-edit git-gutter helm-descbinds whitespace-cleanup-mode magit rainbow-delimiters auto-complete hiwin ess yasnippet company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
