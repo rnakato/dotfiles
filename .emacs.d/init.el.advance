@@ -11,9 +11,9 @@
 
 (setq x-select-enable-clipboard t)
 
-(require 'helm-config)
+;;(require 'helm-config)
 ;;(helm-descbinds-mode)
-(define-key global-map (kbd "M-y") 'helm-show-kill-ring)
+;;(define-key global-map (kbd "M-y") 'helm-show-kill-ring)
 ;;(when (require 'helm-c-moccur nil t)
  ;; (setq
    ;; 執筆時点でエラーが出たため定義しているが、
@@ -81,23 +81,23 @@
 )
 
 ;;; P141-144 メモ書き・ToDo管理 howm
-(setq howm-directory (concat user-emacs-directory "howm"))
+;;(setq howm-directory (concat user-emacs-directory "howm"))
 ;; howm-menuの言語を日本語に
-(setq howm-menu-lang 'ja)
+;;(setq howm-menu-lang 'ja)
 ;; howmメモを1日1ファイルにする
 ; (setq howm-file-name-format "%Y/%m/%Y-%m-%d.howm")
 ;; howm-modeを読み込む
-(when (require 'howm-mode nil t)
-  (define-key global-map (kbd "C-c ,,") 'howm-menu))
+;;(when (require 'howm-mode nil t)
+ ;; (define-key global-map (kbd "C-c ,,") 'howm-menu))
 
 ;; howmメモを保存と同時に閉じる
-(defun howm-save-buffer-and-kill ()
-  "howmメモを保存と同時に閉じます。"
-  (interactive)
-  (when (and (buffer-file-name)
-             (howm-buffer-p))
-    (save-buffer)
-    (kill-buffer nil)))
+;;(defun howm-save-buffer-and-kill ()
+;;  "howmメモを保存と同時に閉じます。"
+ ;; (interactive)
+  ;;(when (and (buffer-file-name)
+  ;;           (howm-buffer-p))
+  ;;  (save-buffer)
+  ;;  (kill-buffer nil)))
 
 ;; C-c C-cでメモの保存と同時にバッファを閉じる
 (define-key howm-mode-map (kbd "C-c C-c") 'howm-save-buffer-and-kill)
@@ -120,6 +120,14 @@
 (with-eval-after-load 'flycheck
   (flycheck-pos-tip-mode))
 
+;; grip-mode
+;; Or start grip when opening a markdown/org buffer
+(add-hook 'markdown-mode-hook #'grip-mode)
+(add-hook 'org-mode-hook #'grip-mode)
+;; Use keybindings
+;;(use-package grip-mode
+;;  :ensure t
+;;  :hook ((markdown-mode org-mode) . grip-mode))
 
 (defun elisp-mode-hooks ()
   "lisp-mode-hooks"
@@ -306,20 +314,15 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(blink-cursor-mode nil)
- '(column-number-mode t)
- '(cua-mode t nil (cua-base))
  '(package-selected-packages
    (quote
-    (helm-describe-modes quickrun flycheck-pycheckers flycheck-perl6 flycheck-clang-tidy flycheck-pos-tip flycheck howm elscreen goto-last-point ## undo-tree undohist wgrep moccur-edit git-gutter helm-descbinds whitespace-cleanup-mode magit rainbow-delimiters auto-complete hiwin ess yasnippet company)))
- '(show-paren-mode t)
- '(tool-bar-mode nil))
+    (grip-mode helm-describe-modes quickrun flycheck-pycheckers flycheck-perl6 flycheck-clang-tidy flycheck-pos-tip flycheck howm elscreen goto-last-point ## undo-tree undohist wgrep moccur-edit git-gutter helm-descbinds whitespace-cleanup-mode magit rainbow-delimiters auto-complete hiwin ess yasnippet company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Ricty Diminished" :foundry "outline" :slant normal :weight normal :height 120 :width normal)))))
+ )
 
  ;; 起動時のフレーム設定
 (setq initial-frame-alist
@@ -391,7 +394,7 @@
 
 ;; git関係
 ;; git-gutter-fringe
-;;(global-git-gutter-mode t)
+(global-git-gutter-mode t)
 
 ;; magit
 (global-set-key (kbd "C-c C-g") 'magit-diff-working-tree)
