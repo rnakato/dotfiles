@@ -11,65 +11,12 @@
 
 (setq x-select-enable-clipboard t)
 
-(require 'helm-config)
-;;(helm-descbinds-mode)
-(define-key global-map (kbd "M-y") 'helm-show-kill-ring)
-;;(when (require 'helm-c-moccur nil t)
- ;; (setq
-   ;; 執筆時点でエラーが出たため定義しているが、
-   ;; 将来的には不要になる可能性が高い
- ;;  helm-idle-delay 0.1
-   ;; helm-c-moccur用 `helm-idle-delay'
- ;;  helm-c-moccur-helm-idle-delay 0.1
-   ;; バッファの情報をハイライトする
- ;;  helm-c-moccur-higligt-info-line-flag t
-   ;; 現在選択中の候補の位置をほかのwindowに表示する
- ;;  helm-c-moccur-enable-auto-look-flag t
-   ;; 起動時にポイントの位置の単語を初期パターンにする
- ;;  helm-c-moccur-enable-initial-pattern t)
-  ;; C-M-oにhelm-c-moccur-occur-by-moccurを割り当てる
-  ;;(global-set-key (kbd "C-M-o") 'helm-c-moccur-occur-by-moccur)
- ;; )
-
-(when (require 'color-moccur nil t)
-  ;; M-oにoccur-by-moccurを割り当て
-  (define-key global-map (kbd "M-o") 'occur-by-moccur)
-  ;; スペース区切りでAND検索
-  (setq moccur-split-word t)
-  ;; ディレクトリ検索のとき除外するファイル
-  (add-to-list 'dmoccur-exclusion-mask "\\.DS_Store")
-  (add-to-list 'dmoccur-exclusion-mask "^#.+#$"))
-
-;; moccur-editの設定
-(require 'moccur-edit nil t)
-;; moccur-edit-finish-editと同時にファイルを保存する
-(defadvice moccur-edit-change-file
-  (after save-after-moccur-edit-buffer activate)
-  (save-buffer))
-
-;;; P133 grepの結果を直接編集 wgrep
-(require 'wgrep nil t)
-
-;;; P135 編集履歴の記憶 undohist
-(when (require 'undohist nil t)
-  (undohist-initialize))
 
 ;;; P136 アンドゥの分岐履歴 undo-tree
 (when (require 'undo-tree nil t)
   ;; C-'にリドゥを割り当てる
   (define-key global-map (kbd "C-'") 'undo-tree-redo)
   (global-undo-tree-mode))
-
-;;; P137 カーソルの移動履歴 point-undo (deprecated?)
-;;(when (require 'point-undo nil t)
-;;   (define-key global-map (kbd "M-[") 'point-undo)
-;;   (define-key global-map (kbd "M-]") 'point-redo)
-;;  )
-(when (require 'goto-last-point nil t)
-  (define-key global-map (kbd "C-<") 'goto-last-point))
-
-(when (require 'goto-last-change nil t)
-  (define-key global-map (kbd "\C-x\C-p") 'goto-last-change))
 
 ;;; P139 ウィンドウの分割状態を管理──ElScreen
 (when (require 'elscreen nil t)
@@ -79,35 +26,6 @@
   ;;      (define-key elscreen-map (kbd "C-z") 'iconify-or-deiconify-frame)
   ;;    (define-key elscreen-map (kbd "C-z") 'suspend-emacs))
 )
-
-;;; P141-144 メモ書き・ToDo管理 howm
-(setq howm-directory (concat user-emacs-directory "howm"))
-;; howm-menuの言語を日本語に
-(setq howm-menu-lang 'ja)
-;; howmメモを1日1ファイルにする
-; (setq howm-file-name-format "%Y/%m/%Y-%m-%d.howm")
-;; howm-modeを読み込む
-(when (require 'howm-mode nil t)
-  (define-key global-map (kbd "C-c ,,") 'howm-menu))
-
-;; howmメモを保存と同時に閉じる
-(defun howm-save-buffer-and-kill ()
-  "howmメモを保存と同時に閉じます。"
-  (interactive)
-  (when (and (buffer-file-name)
-             (howm-buffer-p))
-    (save-buffer)
-    (kill-buffer nil)))
-
-;; C-c C-cでメモの保存と同時にバッファを閉じる
-(define-key howm-mode-map (kbd "C-c C-c") 'howm-save-buffer-and-kill)
-
-;; cua-modeの設定
-(cua-mode t) ; cua-modeをオン
-(setq cua-enable-cua-keys nil) ; CUAキーバインドを無効にする
-
-;; perl-modeをcperl-modeのエイリアスにする
-(defalias 'perl-mode 'cperl-mode)
 
 ;;; P168 python-mode
 ;; C-c C-v で構文check
