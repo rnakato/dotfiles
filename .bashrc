@@ -18,7 +18,7 @@ export PATH=$PATH:$BINARYDIR/bedops_linux_x86_64-v2.4.39
 
 # Go
 export GOPATH=${HOME}/go
-export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin
+export PATH=${GOPATH}/bin:/usr/local/go/bin:${PATH}
 
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

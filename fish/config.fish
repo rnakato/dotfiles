@@ -13,8 +13,12 @@ set -x PATH $PATH $BINARYDIR/gffcompare-0.10.6.Linux_x86_64/
 set -x PATH $PATH $BINARYDIR/userApps/bin
 set -x PATH $PATH $BINARYDIR/bedops_linux_x86_64-v2.4.39
 
+# GO
+set -x GOPATH $HOME/go
+set -x PATH /usr/local/go/bin $GOPATH/bin $PATH
+
 # CellRanger
-set -x PATH $PATH /work/CellRanger/cellranger-current/
+set -x PATH $PATH /work/CellRanger/cellranger-current/ /work/CellRanger/cellranger-atac-current/
 
 ### miniconda
 set -x PATH /work/miniconda3/bin $PATH
@@ -41,13 +45,15 @@ function dbash
     docker exec -it $argv bash
 end
 
+set -x LD_LIBRARY_PATH /usr/local/lib $LD_LIBRARY_PATH
+
 # path for GPU
-set -x LD_LIBRARY_PATH $HOME/.cudnn/active/cuda/lib64 $LD_LIBRARY_PATH
-set -x CPATH $HOME/.cudnn/active/cuda/include $CPATH
-set -x LIBRARY_PATH $HOME/.cudnn/active/cuda/lib64 $LIBRARY_PATH
-set -x vCUDA cuda-10.0
-set -x PATH /usr/local/$vCUDA/bin $PATH
-set -x LD_LIBRARY_PATH /usr/local/$vCUDA/lib64 $LD_LIBRARY_PATH
-set -x CFLAGS -I~/.cudnn/active/cuda/include
-set -x LDFLAGS -L~/.cudnn/active/cuda/lib64
-set -x LD_LIBRARY_PATH ~/.cudnn/active/cuda/lib64 $LD_LIBRARY_PATH
+#set -x LD_LIBRARY_PATH $HOME/.cudnn/active/cuda/lib64 $LD_LIBRARY_PATH
+#set -x CPATH $HOME/.cudnn/active/cuda/include $CPATH
+#set -x LIBRARY_PATH $HOME/.cudnn/active/cuda/lib64 $LIBRARY_PATH
+#set -x vCUDA cuda-10.0
+#set -x PATH /usr/local/$vCUDA/bin $PATH
+#set -x LD_LIBRARY_PATH /usr/local/$vCUDA/lib64 $LD_LIBRARY_PATH
+#set -x CFLAGS -I~/.cudnn/active/cuda/include
+#set -x LDFLAGS -L~/.cudnn/active/cuda/lib64
+#set -x LD_LIBRARY_PATH ~/.cudnn/active/cuda/lib64 $LD_LIBRARY_PATH
