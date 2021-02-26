@@ -2,6 +2,7 @@ if test (hostname) = "horn" \
      -o (hostname) = "accordion" \
      -o (hostname) = "euphonium" \
      -o (hostname) = "synthesizer" \
+     -o (hostname) = "guitar" \
      -o (hostname) = "saxophone"
 
      set -x GITDIR /work/git

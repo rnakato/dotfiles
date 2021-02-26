@@ -41,3 +41,10 @@ export LD_LIBRARY_PATH=/usr/local/$vCUDA/lib64:$LD_LIBRARY_PATH
 export CFLAGS=-I~/.cudnn/active/cuda/include
 export LDFLAGS=-L~/.cudnn/active/cuda/lib64
 export LD_LIBRARY_PATH=~/.cudnn/active/cuda/lib64:$LD_LIBRARY_PATH
+
+# for guitar
+vCUDA=cuda-11.1
+export PATH=/usr/local/$vCUDA/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/$vCUDA/lib64:$LD_LIBRARY_PATH
+export CFLAGS=-I/usr/local/$vCUDA/include
+export LDFLAGS=-L/usr/local/$vCUDA/lib64

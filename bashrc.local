@@ -4,16 +4,20 @@ if test $hostname = "horn" \
      -o $hostname = "accordion" \
      -o $hostname = "euphonium" \
      -o $hostname = "synthesizer" \
-     -o $hostname = "saxophone"
+     -o $hostname = "saxophone" \
+     -o $hostname = "guitar"
 then
     GITDIR=/work/git
     export PLENV_ROOT=$GITDIR/plenv
-    export PYENV_ROOT=$GITDIR/pyenv
+#    export PYENV_ROOT=$GITDIR/pyenv
     export DISPLAY=172.20.224.1:0
 else
     GITDIR=$HOME/git
     export PLENV_ROOT=$HOME/.plenv
     export PYENV_ROOT=$HOME/.pyenv
+
+    export PATH=$PYENV_ROOT/bin:$PYENV_ROOT/shims:$PATH
+    eval "$(pyenv init -)"
 
     SSH_AGENT_FILE=$HOME/.ssh/ssh-agent
     test -f $SSH_AGENT_FILE && source $SSH_AGENT_FILE
@@ -29,5 +33,3 @@ fi
 
 export PATH=$PLENV_ROOT/bin:$PLENV_ROOT/shims:$PATH
 eval "$(plenv init -)"
-export PATH=$PYENV_ROOT/bin:$PYENV_ROOT/shims:$PATH
-eval "$(pyenv init -)"
