@@ -11,5 +11,5 @@ ln -s ~/git/dotfiles/.jupyter/ ~/
 ln -s ~/git/dotfiles/.alias ~/
 ln -s ~/git/dotfiles/fish ~/.config/
 ln -s ~/git/dotfiles/fisher ~/.config/
-echo "source /home/rnakato/git/dotfiles/.bashrc" >> ~/.bashrc
+echo "source $HOME/git/dotfiles/.bashrc" >> ~/.bashrc
 ```
