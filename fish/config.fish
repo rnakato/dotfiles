@@ -48,12 +48,9 @@ end
 set -x LD_LIBRARY_PATH /usr/local/lib $LD_LIBRARY_PATH
 
 # path for GPU
-#set -x LD_LIBRARY_PATH $HOME/.cudnn/active/cuda/lib64 $LD_LIBRARY_PATH
-#set -x CPATH $HOME/.cudnn/active/cuda/include $CPATH
-#set -x LIBRARY_PATH $HOME/.cudnn/active/cuda/lib64 $LIBRARY_PATH
-#set -x vCUDA cuda-10.0
-#set -x PATH /usr/local/$vCUDA/bin $PATH
-#set -x LD_LIBRARY_PATH /usr/local/$vCUDA/lib64 $LD_LIBRARY_PATH
-#set -x CFLAGS -I~/.cudnn/active/cuda/include
-#set -x LDFLAGS -L~/.cudnn/active/cuda/lib64
+set -x vCUDA cuda-11.3
+set -x PATH /usr/local/$vCUDA/bin $PATH
+set -x LD_LIBRARY_PATH /usr/local/$vCUDA/lib64 $LD_LIBRARY_PATH
+set -x CFLAGS -I~/usr/local/$vCUDA/include
+set -x LDFLAGS -L~/usr/local/$vCUDA/lib64
 #set -x LD_LIBRARY_PATH ~/.cudnn/active/cuda/lib64 $LD_LIBRARY_PATH
