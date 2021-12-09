@@ -3,7 +3,7 @@ if test (hostname) = "horn" \
      -o (hostname) = "euphonium" \
      -o (hostname) = "synthesizer" \
      -o (hostname) = "guitar" \
-     -o (hostname) = "saxophone"
+     -o (hostname) = "cornet"
 
      set -x GITDIR /work/git
      set -x PLENV_ROOT $GITDIR/plenv

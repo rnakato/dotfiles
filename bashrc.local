@@ -4,7 +4,7 @@ if test $hostname = "horn" \
      -o $hostname = "accordion" \
      -o $hostname = "euphonium" \
      -o $hostname = "synthesizer" \
-     -o $hostname = "saxophone" \
+     -o $hostname = "cornet" \
      -o $hostname = "guitar"
 then
     GITDIR=/work/git
