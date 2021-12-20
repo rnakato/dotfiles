@@ -7,7 +7,7 @@ if test (hostname) = "horn" \
 
      set -x GITDIR /work/git
      set -x PLENV_ROOT $GITDIR/plenv
-     set -x PYENV_ROOT $GITDIR/pyenv
+#     set -x PYENV_ROOT $GITDIR/pyenv
 
 else
      set -x GITDIR $HOME/git
