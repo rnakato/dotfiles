@@ -15,3 +15,5 @@
 	sta = !git stl | xargs git stash apply
 	std = !git stl | xargs git stash drop
 	ps = "!f() { args=$@; [ -z \"$args\" ] && git push origin HEAD || git push $args; }; f"
+[credential]
+	helper = cache
