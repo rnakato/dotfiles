@@ -12,12 +12,6 @@
 (setq x-select-enable-clipboard t)
 
 
-;;; P136 アンドゥの分岐履歴 undo-tree
-(when (require 'undo-tree nil t)
-  ;; C-'にリドゥを割り当てる
-  (define-key global-map (kbd "C-'") 'undo-tree-redo)
-  (global-undo-tree-mode))
-
 ;;; P139 ウィンドウの分割状態を管理──ElScreen
 (when (require 'elscreen nil t)
   (elscreen-start)
@@ -175,9 +169,9 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; color theme
-(setq custom-theme-directory "~/.emacs.d/themes/")
+;;(setq custom-theme-directory "~/.emacs.d/themes/")
 ;;(load-theme 'atom-one-dark t)
-(load-theme 'zenburn t)
+;;(load-theme 'zenburn t)
 ;;(load-theme 'wheatgrass t)
 
 ;; alpha
