@@ -169,8 +169,8 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; color theme
-;;(setq custom-theme-directory "~/.emacs.d/themes/")
-;;(load-theme 'atom-one-dark t)
+(setq custom-theme-directory "~/.emacs.d/themes/")
+(load-theme 'atom-one-dark t)
 ;;(load-theme 'zenburn t)
 ;;(load-theme 'wheatgrass t)
 
