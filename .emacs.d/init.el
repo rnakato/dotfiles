@@ -142,7 +142,7 @@
 (column-number-mode t)
 
 ;; 行数を表示する
-(global-linum-mode t)
+;;(global-linum-mode t)
 
 ;; カーソルの点滅をやめる
 (blink-cursor-mode 0)
