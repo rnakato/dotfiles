@@ -9,7 +9,7 @@
 
 (add-to-list 'default-frame-alist '(font . "ricty-12"))
 
-(setq x-select-enable-clipboard t)
+(setq select-enable-clipboard t)
 
 
 ;;; P139 ウィンドウの分割状態を管理──ElScreen
@@ -254,7 +254,7 @@
    ;; C 系(cc-mode を継承した)モード共通の設定を記述
 
    ;; 空白などを一度に削除
-   (c-toggle-hungry-state 1)
+   ;;(c-toggle-hungry-state 1)
 
    ;; 改行時などで自動インデント
    ;; (c-toggle-electric-state 1)
