@@ -3,7 +3,7 @@ source $HOME/.config/fish/config.local.fish
 set -x BINARYDIR $GITDIR/binaries
 
 ### GITDIR
-set -x PATH $PATH $GITDIR/Cgaln $GITDIR/DROMPA3 $GITDIR/DROMPA3/scripts $GITDIR/DROMPAplus/bin $GITDIR/DROMPAplus/otherbins $GITDIR/DROMPAplus/submodules/cpdf/Linux-Intel-64bit $GITDIR/SSP/bin $GITDIR/ChIPseqTools/bin $GITDIR/script_rnakato $GITDIR/script_RNAseq $GITDIR/script_Hi-C
+set -x PATH $PATH $GITDIR/Cgaln $GITDIR/DROMPA3 $GITDIR/DROMPA3/scripts $GITDIR/DROMPAplus/scripts $GITDIR/DROMPAplus/bin $GITDIR/DROMPAplus/otherbins $GITDIR/DROMPAplus/submodules/cpdf/Linux-Intel-64bit $GITDIR/SSP/bin $GITDIR/ChIPseqTools/bin $GITDIR/script_rnakato $GITDIR/script_RNAseq $GITDIR/script_Hi-C
 set -x PATH $PATH $GITDIR/bedtools2/bin $GITDIR/bamtools/bin $GITDIR/salmon/bin $GITDIR/HOMER/bin $GITDIR/UCSC_utils/
 set -x PATH $PATH $GITDIR/UCSC_utils
 
@@ -20,8 +20,8 @@ set -x PATH /usr/local/go/bin $GOPATH/bin $PATH
 # CellRanger
 set -x PATH $PATH /work/CellRanger/cellranger-current/ /work/CellRanger/cellranger-atac-current/
 
-### miniconda
-set -x PATH /work/miniconda3/bin $PATH
+### anaconda
+set -x PATH /work/anaconda3_202205/bin $PATH
 
 ### Emacs (Windows)
 set -x PATH $PATH /mnt/c/emacs-26.3-x86_64/bin
@@ -46,3 +46,9 @@ function dbash
 end
 
 set -x LD_LIBRARY_PATH /usr/local/lib $LD_LIBRARY_PATH
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+eval /work/anaconda3_202205/bin/conda "shell.fish" "hook" $argv | source
+# <<< conda initialize <<<
+
