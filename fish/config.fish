@@ -49,6 +49,5 @@ set -x LD_LIBRARY_PATH /usr/local/lib $LD_LIBRARY_PATH
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-eval /work/anaconda3_202205/bin/conda "shell.fish" "hook" $argv | source
+eval /work/miniconda3_py37/bin/conda "shell.fish" "hook" $argv | source
 # <<< conda initialize <<<
-
