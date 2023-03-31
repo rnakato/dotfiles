@@ -328,3 +328,4 @@
                     :weight 'bold)
 (set-face-attribute 'whitespace-empty nil
                     :background my/bg-color)
+(put 'scroll-left 'disabled nil)
