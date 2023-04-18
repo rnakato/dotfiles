@@ -8,6 +8,7 @@ if test (hostname) = "horn" \
 
      set -x GITDIR /work/git
      set -x PLENV_ROOT $GITDIR/plenv
+     eval /work/miniconda3_py37/bin/conda "shell.fish" "hook" $argv | source
 #     set -x PYENV_ROOT $GITDIR/pyenv
 
 else

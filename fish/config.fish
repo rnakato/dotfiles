@@ -13,7 +13,7 @@ set -x PATH $PATH $BINARYDIR/gffcompare-0.10.6.Linux_x86_64/
 set -x PATH $PATH $BINARYDIR/bedops_linux_x86_64-v2.4.39
 
 ### Deprecated
-# set -x PATH $PATH $GITDIR/Cgaln $GITDIR/DROMPA3 $GITDIR/DROMPA3/scripts $GITDIR/salmon/bin 
+# set -x PATH $PATH $GITDIR/Cgaln $GITDIR/DROMPA3 $GITDIR/DROMPA3/scripts $GITDIR/salmon/bin
 # set -x PATH $PATH $BINARYDIR/userApps/bin
 
 # GO
@@ -49,5 +49,5 @@ set -x LD_LIBRARY_PATH /usr/local/lib $LD_LIBRARY_PATH
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-eval /work/miniconda3_py37/bin/conda "shell.fish" "hook" $argv | source
+#eval /work/miniconda3_py37/bin/conda "shell.fish" "hook" $argv | source
 # <<< conda initialize <<<
