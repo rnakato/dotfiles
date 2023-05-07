@@ -31,18 +31,8 @@ alias ds='docker rm $(docker ps -q -a | tr "\n" " ")'
 alias dpurge='docker stop $(docker ps -q) && docker rmi $(docker images -q) -f'
 alias E='emacsclient -c'
 
-# path for GPU
-#export LD_LIBRARY_PATH=$HOME/.cudnn/active/cuda/lib64:$LD_LIBRARY_PATH
-#export CPATH=$HOME/.cudnn/active/cuda/include:$CPATH
-#export LIBRARY_PATH=$HOME/.cudnn/active/cuda/lib64:$LIBRARY_PATH
-#vCUDA=cuda-11.3
-#export PATH=/usr/local/$vCUDA/bin:$PATH
-#export LD_LIBRARY_PATH=/usr/local/$vCUDA/lib64:$LD_LIBRARY_PATH
-#export CFLAGS=-I~/.cudnn/active/cuda/include
-#export LDFLAGS=-L~/.cudnn/active/cuda/lib64
-#export LD_LIBRARY_PATH=~/.cudnn/active/cuda/lib64:$LD_LIBRARY_PATH
-
-vCUDA=cuda-11.3
+# vCUDA=cuda-11.3
+vCUDA=cuda
 export PATH=/usr/local/$vCUDA/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/$vCUDA/lib64:$LD_LIBRARY_PATH
 export CFLAGS=-I/usr/local/$vCUDA/include
