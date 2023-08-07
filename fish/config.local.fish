@@ -16,13 +16,14 @@ else
      set -x PLENV_ROOT $HOME/.plenv
      set -x PYENV_ROOT $HOME/.pyenv
 
-     set -x SSH_AGENT_FILE $HOME/.ssh/ssh-agent
+     set -gx SSH_AGENT_FILE $HOME/.ssh/ssh-agent
      if test -f $SSH_AGENT_FILE
         source $SSH_AGENT_FILE
      end
-     ssh-add -l > /dev/null #^&1
-     if test $status -ne 0
-        ssh-agent -c > $SSH_AGENT_FILE
+#     ssh-add -l > /dev/null #^&1
+ #    if test $status -ne 0
+     if not ssh-add -l > /dev/null 2>&1
+        ssh-agent > $SSH_AGENT_FILE
         source $SSH_AGENT_FILE
         ssh-add $HOME/.ssh/id_rsa
      end
