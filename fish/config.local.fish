@@ -8,11 +8,12 @@ if test (hostname) = "horn" \
 
      set -x GITDIR $HOME/git
      set -x PLENV_ROOT $GITDIR/plenv
-     eval /work3/miniconda3_py39/bin/conda "shell.fish" "hook" $argv | source
+     eval /work/miniconda3_py37/bin/conda "shell.fish" "hook" $argv | source
 else
      set -x GITDIR $HOME/git
      set -x PLENV_ROOT $HOME/.plenv
      set -x PYENV_ROOT $HOME/.pyenv
+     eval (pyenv init - | source)
 
      set -gx SSH_AGENT_FILE $HOME/.ssh/ssh-agent
      if test -f $SSH_AGENT_FILE
@@ -31,4 +32,3 @@ end
 set -x PATH $PLENV_ROOT/bin $PLENV_ROOT/shims $PATH
 eval (plenv init - | source)
 set -x PATH $PYENV_ROOT/bin $PYENV_ROOT/shims $PATH
-#eval (pyenv init - | source)

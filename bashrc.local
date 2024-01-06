@@ -8,7 +8,7 @@ if test $hostname = "horn" \
      -o $hostname = "guitar" \
      -o $hostname = "castanet"
 then
-    GITDIR=/work/git
+    GITDIR=$HOME/git
     export PLENV_ROOT=$GITDIR/plenv
     export DISPLAY=172.20.224.1:0
 else
