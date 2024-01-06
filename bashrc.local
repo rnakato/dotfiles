@@ -10,7 +10,6 @@ if test $hostname = "horn" \
 then
     GITDIR=/work/git
     export PLENV_ROOT=$GITDIR/plenv
-#    export PYENV_ROOT=$GITDIR/pyenv
     export DISPLAY=172.20.224.1:0
 else
     GITDIR=$HOME/git

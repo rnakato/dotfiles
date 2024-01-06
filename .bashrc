@@ -1,4 +1,4 @@
-source $HOME/git/dotfiles/bashrc.local
+source $GITDIR/dotfiles/bashrc.local
 
 export PATH=$PATH:/usr/local/bin:/home/linuxbrew/.linuxbrew/bin/:$HOME/.cargo/bin
 export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin/
@@ -29,9 +29,7 @@ source ~/.alias
 alias dr='docker stop $(docker ps -q | tr "\n" " ") && docker rm $(docker ps -q -a | tr "\n" " ")'
 alias ds='docker rm $(docker ps -q -a | tr "\n" " ")'
 alias dpurge='docker stop $(docker ps -q) && docker rmi $(docker images -q) -f'
-alias E='emacsclient -c'
 
-# vCUDA=cuda-11.3
 vCUDA=cuda
 export PATH=/usr/local/$vCUDA/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/$vCUDA/lib64:$LD_LIBRARY_PATH
