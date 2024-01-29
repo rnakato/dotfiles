@@ -39,10 +39,6 @@ alias d_purge='docker rmi (docker images -q) -f'
 ### homebrew
 set -x PATH $PATH /home/linuxbrew/.linuxbrew/bin/ $HOME/.cargo/bin
 
-# for fzf
-# https://qiita.com/hennin/items/33758226a0de8c963ddf
-#set -x FZF_LEGACY_KEYBINDINGS 0
-
 ### functions
 function dbash
     docker exec -it $argv bash

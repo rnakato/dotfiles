@@ -20,9 +20,6 @@ export PATH=$PATH:$BINARYDIR/bedops_linux_x86_64-v2.4.39
 export GOPATH=${HOME}/go
 export PATH=${GOPATH}/bin:/usr/local/go/bin:${PATH}
 
-# fzf
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
 ### alias
 source ~/.alias
 
