@@ -3,3 +3,4 @@
 .emacs.d/backups
 .emacs.d/undohist
 fish/fish_variables
+.pypirc
