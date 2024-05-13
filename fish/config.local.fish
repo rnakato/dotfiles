@@ -12,9 +12,9 @@ if test (hostname) = "horn" \
 else
      set -x GITDIR $HOME/git
      set -x PLENV_ROOT $HOME/.plenv
-     set -x PYENV_ROOT $HOME/.pyenv
-     set -x PATH $PYENV_ROOT/bin $PYENV_ROOT/shims $PATH
-     eval (pyenv init - | source)
+#     set -x PYENV_ROOT $HOME/.pyenv
+#     set -x PATH $PYENV_ROOT/bin $PYENV_ROOT/shims $PATH
+#     eval (pyenv init - | source)
 
      set -gx SSH_AGENT_FILE $HOME/.ssh/ssh-agent
      if test -f $SSH_AGENT_FILE
@@ -26,7 +26,7 @@ else
         source $SSH_AGENT_FILE
         ssh-add $HOME/.ssh/id_rsa
      end
-     set -x PATH $PYENV_ROOT/bin $PYENV_ROOT/shims $PATH
+#     set -x PATH $PYENV_ROOT/bin $PYENV_ROOT/shims $PATH
 
     export DISPLAY=(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
 end
