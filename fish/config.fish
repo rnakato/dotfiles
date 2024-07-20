@@ -14,19 +14,9 @@ set -x PATH $PATH $BINARYDIR/bedops_linux_x86_64-v2.4.39
 ### Aspera
 set -x PATH $PATH $HOME/.aspera/connect/bin/
 
-### Deprecated
-# set -x PATH $PATH $GITDIR/Cgaln $GITDIR/DROMPA3 $GITDIR/DROMPA3/scripts $GITDIR/salmon/bin
-# set -x PATH $PATH $BINARYDIR/userApps/bin
-
 # GO
 #set -x GOPATH $HOME/go
 #set -x PATH /usr/local/go/bin $GOPATH/bin $PATH
-
-# CellRanger
-set -x PATH $PATH /work/CellRanger/cellranger-current/ /work/CellRanger/cellranger-atac-current/
-
-### Emacs (Windows)
-set -x PATH $PATH /mnt/c/emacs-26.3-x86_64/bin
 
 # alias
 source $HOME/.alias
@@ -36,7 +26,7 @@ alias dstop_purge='docker stop (docker ps -q) && docker rmi (docker images -q) -
 alias d_purge='docker rmi (docker images -q) -f'
 
 ### homebrew
-set -x PATH $PATH /home/linuxbrew/.linuxbrew/bin/ $HOME/.cargo/bin
+set -x PATH $PATH $HOME/.cargo/bin
 
 ### functions
 function dbash
@@ -52,4 +42,5 @@ set -gx MAMBA_ROOT_PREFIX "/home/rnakato/.micromamba"
 $MAMBA_EXE shell hook --shell fish --root-prefix $MAMBA_ROOT_PREFIX | source
 # <<< mamba initialize <<<
 
+set PATH $PATH $MAMBA_EXE
 micromamba activate base

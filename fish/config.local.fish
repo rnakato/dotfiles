@@ -4,7 +4,8 @@ if test (hostname) = "horn" \
      -o (hostname) = "synthesizer" \
      -o (hostname) = "guitar" \
      -o (hostname) = "cornet" \
-     -o (hostname) = "castanet"
+     -o (hostname) = "castanet" \
+     -o (hostname) = "bagpipe"
 
      set -x GITDIR $HOME/git
      set -x PLENV_ROOT $GITDIR/plenv

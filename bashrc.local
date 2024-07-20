@@ -6,7 +6,8 @@ if test $hostname = "horn" \
      -o $hostname = "synthesizer" \
      -o $hostname = "cornet" \
      -o $hostname = "guitar" \
-     -o $hostname = "castanet"
+     -o $hostname = "castanet" \
+     -o $hostname = "bagpipe" \
 then
     GITDIR=$HOME/git
     export PLENV_ROOT=$GITDIR/plenv
