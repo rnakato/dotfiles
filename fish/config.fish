@@ -37,8 +37,8 @@ set -x LD_LIBRARY_PATH /usr/local/lib $LD_LIBRARY_PATH
 
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba init' !!
-set -gx MAMBA_EXE "/home/rnakato/.micromamba/bin/micromamba"
-set -gx MAMBA_ROOT_PREFIX "/home/rnakato/.micromamba"
+set -gx MAMBA_EXE "/work/micromamba/bin/micromamba"
+set -gx MAMBA_ROOT_PREFIX "/work/micromamba"
 $MAMBA_EXE shell hook --shell fish --root-prefix $MAMBA_ROOT_PREFIX | source
 # <<< mamba initialize <<<
 
