@@ -7,7 +7,7 @@ if test $hostname = "horn" \
      -o $hostname = "cornet" \
      -o $hostname = "guitar" \
      -o $hostname = "castanet" \
-     -o $hostname = "bagpipe" \
+     -o $hostname = "bagpipe"
 then
     GITDIR=$HOME/git
     export PLENV_ROOT=$GITDIR/plenv
@@ -15,10 +15,10 @@ then
 else
     GITDIR=$HOME/git
     export PLENV_ROOT=$HOME/.plenv
-    export PYENV_ROOT=$HOME/.pyenv
+#    export PYENV_ROOT=$HOME/.pyenv
 
-    export PATH=$PYENV_ROOT/bin:$PYENV_ROOT/shims:$PATH
-    eval "$(pyenv init -)"
+#    export PATH=$PYENV_ROOT/bin:$PYENV_ROOT/shims:$PATH
+#    eval "$(pyenv init -)"
 
     SSH_AGENT_FILE=$HOME/.ssh/ssh-agent
     test -f $SSH_AGENT_FILE && source $SSH_AGENT_FILE
