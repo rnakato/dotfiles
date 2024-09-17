@@ -1,4 +1,4 @@
-alias bat='batcat'
+alias tl='tmux ls'
 alias gsh='git push origin master'
 alias gll='git pull origin master'
 alias gshn='git push origin main'
