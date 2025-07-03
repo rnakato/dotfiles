@@ -17,3 +17,10 @@
 	ps = "!f() { args=$@; [ -z \"$args\" ] && git push origin HEAD || git push $args; }; f"
 [credential]
 	helper = cache
+[safe]
+	directory = /work/git/dotfiles
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

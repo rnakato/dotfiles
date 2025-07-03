@@ -10,8 +10,10 @@ if test (hostname) = "horn" \
      set -x GITDIR $HOME/git
      set -x PLENV_ROOT $GITDIR/plenv
 
-     set -gx MAMBA_EXE "/work/micromamba/bin/micromamba"
-     set -gx MAMBA_ROOT_PREFIX "/work/micromamba"
+#     set -gx MAMBA_EXE "/work/micromamba/bin/micromamba"
+#     set -gx MAMBA_ROOT_PREFIX "/work/micromamba"
+     set -gx MAMBA_EXE "$HOME/.micromamba/bin/micromamba"
+     set -gx MAMBA_ROOT_PREFIX "$HOME/.micromamba"
      $MAMBA_EXE shell hook --shell fish --root-prefix $MAMBA_ROOT_PREFIX | source
 
 else
